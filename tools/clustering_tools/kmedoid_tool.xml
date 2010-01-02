@@ -3,7 +3,11 @@
   <command interpreter="python">kmedoid_tool.py -d $input -s $sep -c $k -i $it -D $dist -f $fastdtw.fast -r $fastdtw.radius -S $seed -t $tol -o $output</command>
   <inputs>
     <param format="tabular" name="input" type="data" label="Source file"/>
-    <param name="sep" type="text" value="|" label="Separator" />
+    <param name="sep" type="select" label="Separator">
+      <option value="|">Pipe</option>
+      <option value="tab">TAB</option>
+      <option value=",">Comma</option>
+    </param>
     <param name="k" type="integer" value="2" label="Number of clusters" />
     <param name="it" type="text" value="None" label="Number of iterations" />
     <param name="dist" type="select" label="Distance">

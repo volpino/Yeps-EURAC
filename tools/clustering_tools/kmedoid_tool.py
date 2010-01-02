@@ -36,6 +36,8 @@ if not options.finp:
 	parser.error("option -d (data) is required")
 if not options.sep:
 	parser.error("option -s (separator) is required")
+if options.sep == "tab":
+    options.sep = '\t'
 if not options.k:
 	parser.error("option -c (cluster) is required")
 if not options.foutp:
