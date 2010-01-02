@@ -1,0 +1,654 @@
+## Font settings from YUI + verdana
+body{font:13px/1.231 verdana,arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea,button{font:99% verdana,arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+body{font-size:75%;}
+
+## Mixins
+
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.shadow {
+    -moz-box-shadow: 0 3px 30px black;
+    -webkit-box-shadow: 0 3px 30px black;
+}
+
+## Real styles
+
+body  {
+    background: $base_bg_bottom;
+    color: $base_text;
+    background-image: url(base_bg.png);
+    background-repeat: repeat-x;
+    background-position: top;
+    margin: 10px;
+}
+
+img {
+    border: 0;
+}
+
+
+a:link, a:visited, a:active {
+    color: $link_text;
+}
+
+h1, h2, h3, h4 {
+    color: $header_text;
+    /*text-shadow: #bbb 2px 2px 1px;*/
+}
+
+hr {
+    border: none;
+    height: 0px;
+    border-bottom: dotted $base_text 1px;
+}
+
+th {
+    text-align: left;
+}
+
+div.toolForm {
+    border: solid $form_border 1px;
+}
+
+div.toolFormTitle { 
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: $form_title_bg_bottom;
+    ## background-image: url(form_title_bg.png);
+    background-repeat: repeat-x;
+    background-position: top;
+    border-bottom: solid $form_border 1px;
+}
+
+div.toolParamHelp {
+    color: #666;
+}
+
+div.toolParamHelp a {
+    color: #666;
+}
+
+div.toolFormBody { 
+    background: $form_body_bg_bottom;
+    background-image: url(form_body_bg.png);
+    background-repeat: repeat-x;
+    background-position: top;
+    padding: 5px 0;
+}
+
+div.toolFormBody div.toolFormTitle {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    border-bottom: solid $form_border 1px;
+    margin-bottom: 5px;
+}
+
+div.toolFormDisabled div.toolFormTitle {
+    background: ${layout_bg};
+    border-color: ${layout_border};
+}
+
+div.toolFormDisabled {
+    border-color: ${layout_border};
+}
+
+div.toolHelp { 
+}
+
+div.toolHelpBody { 
+    width: 100%;
+    overflow: auto;
+}
+
+div.titleRow {
+    font-weight: bold;
+    border-bottom: dotted gray 1px;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.25em;
+}
+
+## Forms 
+
+div.form {
+    border: solid $form_border 1px;
+}
+
+div.form-title { 
+    font-weight: bold;
+    padding: 5px 10px;
+    background: $form_title_bg_bottom;
+    background-image: url(form_title_bg.png);
+    background-repeat: repeat-x;
+    background-position: top;
+    border-bottom: solid $form_border 1px;
+}
+
+div.form-body { 
+    padding: 5px 0;
+}
+
+div.form-row  {
+    padding: 5px 10px;
+}
+
+div.form-title-row {
+    padding: 5px 10px;
+}
+
+div.repeat-group-item {
+    border-left: solid $form_border 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+div.form-row-error {
+    background: $error_message_bg;
+}
+
+div.form-row label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: .2em;
+}
+
+div.form-row-input {
+    float: left;
+    width: 300px;
+}
+
+div.form-row-input > input {
+    max-width: 300px;
+}
+
+div.form-row-error-message {
+    width: 300px;
+    float: left;
+    color: red;
+    font-weight: bold;
+    padding: 3px 0 0 1em;
+}
+
+select, input, textarea {
+    font: inherit;
+    font-size: 115%;
+}
+
+select, textarea, input[type="text"], input[type="file"], input[type="password"] {
+    -webkit-box-sizing: border-box;
+    max-width: 300px;
+}
+
+## Messages 
+
+.errormessagelarge, .warningmessagelarge, .donemessagelarge, .infomessagelarge {
+    padding: 10px;
+    padding-left: 52px;
+    min-height: 32px;
+    border: 1px solid $error_message_border;
+    background-color: $error_message_bg;
+    background-image: url(error_message_icon.png);
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+.warningmessagelarge {
+    background-image: url(warn_message_icon.png);
+    border-color: $warn_message_border;
+    background-color: $warn_message_bg;
+}
+
+.donemessagelarge {
+    background-image: url(done_message_icon.png);
+    border-color: $done_message_border;
+    background-color: $done_message_bg;
+}
+
+.infomessagelarge {
+    background-image: url(info_message_icon.png);
+    border-color: $info_message_border;
+    background-color: $info_message_bg;
+}
+
+.screencastBox {   
+    padding-left: 10px;
+    border-color: #AAAA66;
+    background-color: #FFFFCC;
+    background-image: none;
+}
+
+.errormessage, .warningmessage, .donemessage, .infomessage, .errormessagesmall, .warningmessagesmall, .donemessagesmall, .infomessagesmall {
+    padding: 5px;
+    padding-left: 25px;
+    min-height: 15px;
+    border: 1px solid $error_message_border;
+    background-color: $error_message_bg;
+    background-image: url(error_small.png);
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+}
+
+.warningmessage, .warningmessagesmall {
+    background-image: url(warn_small.png);
+    border-color: $warn_message_border;
+    background-color: $warn_message_bg;
+}
+
+.donemessage, .donemessagesmall {
+    background-image: url(ok_small.png);
+    border-color: $done_message_border;
+    background-color: $done_message_bg;
+}
+
+.infomessage, .infomessagesmall {
+    background-image: url(info_small.png);
+    border-color: $info_message_border;
+    background-color: $info_message_bg;
+}
+
+.errormark, .warningmark, .donemark, .infomark, .ok_bgr, .err_bgr {
+    padding-left: 20px;
+    min-height: 15px;
+    background: url(error_small.png) no-repeat;
+}
+
+.warningmark {
+    background-image: url(warn_small.png);
+}
+
+.donemark {
+    background-image: url(ok_small.png);
+}
+
+.infomark, .ok_bgr {
+    background-image: url(info_small.png);
+}
+
+table.colored {
+    border-top: solid $table_border 1px;
+    border-bottom: solid $table_border 1px;
+}
+
+table.colored td, table.colored th {
+    text-align: left;
+    padding: 5px;
+}
+
+table.colored tr.header { 
+    background: $table_header_bg;
+    background-image: url(form_title_bg.png);
+    background-repeat: repeat-x;
+    background-position: top;
+    border-bottom: solid $table_border 1px;
+    font-weight: bold;
+}
+
+table.colored tr { 
+    background: $table_row_bg;
+}
+
+table.colored tr.odd_row { 
+    background: $odd_row_bg;
+}
+
+div.debug {
+    margin: 10px;
+    padding: 5px;
+    background: #FFFF99;
+    border: solid #FFFF33 1px;
+    color: black;
+}
+
+div.odd_row {
+    background: $odd_row_bg;
+}
+    
+#footer {
+  display: none;
+}
+
+## Tool panel stuff
+
+td.panel-body {
+    background: white;
+    color: $base_text;
+    background: $menu_bg_over url(menu_bg.png) top repeat-x;
+}
+
+div.toolSectionPad {
+    margin: 0;
+    padding: 0;
+    height: 5px;
+    font-size: 0px;
+}
+
+div.toolSectionDetailsInner { 
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+div.toolSectionTitle {
+    padding-bottom: 0px;
+    font-weight: bold;
+}
+
+div.toolTitle {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 16px;
+    margin-right: 10px;
+    display: list-item;
+    list-style: square outside;
+}
+
+span.toolParameterExpandableCollapsable {
+    font-weight: bold;
+    cursor: pointer;
+}
+ul.toolParameterExpandableCollapsable {
+    list-style: none;
+}
+
+ul.manage-table-actions {
+    float: right;
+    margin-top: -2.5em;
+}
+ul.manage-table-actions li {
+    display: block;
+    float: left;
+    margin-left: 0.5em;
+}
+
+## State colors
+
+.state-color-queued {
+    border-color: $history_queued_border;
+    background: $history_queued_bg;
+}
+
+.state-color-ok {
+    border-color: $history_ok_border;
+    background: $history_ok_bg;
+}
+
+.state-color-error {
+    border-color: $history_error_border;
+    background: $history_error_bg;
+}
+
+.state-color-running {
+    border-color: $history_running_border;
+    background: $history_running_bg;
+}
+
+.state-fg-queued {
+    color: #888888;
+}
+.state-fg-ok {
+    color: #66AA66;
+}
+.state-fg-running {
+    color: #AAAA66;
+}
+.state-fg-error {
+    color: #AA6666;
+}
+
+## Button styles
+
+.action-button {
+    background: transparent;
+    line-height: 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px;
+    border: solid #aaaaaa 1px;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.action-button > * {
+    vertical-align: middle;
+}
+
+.action-button:hover {
+    color: black;
+    background: #dddddd;
+}
+.action-button:active {
+    color: white;
+    background: #aaaaaa;
+}
+
+## A menu button is a button that has an attached popup menu
+
+.menubutton {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    .unselectable;
+    
+    border: solid transparent 1px;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em;
+    
+    padding: 3px 0.5em;
+    margin: -3px -0.5em;
+    
+    .label {
+        position: relative;
+        display: block;
+        border-right: none;
+    }
+}
+
+.menubutton.popup {
+    padding-right: 1.5em;
+    background: url(../images/dropdownarrow.png) no-repeat right 8px;
+}
+
+.menubutton:hover {
+    border-color: #aaaaaa;
+    ## background: #eeeeee;
+    ## color: #333;
+}
+
+## A split menu button, the main button has an action, the arrow causes the
+## popup menu to appear
+
+.menubutton.popup.split {
+    padding-right: 2em;
+}
+
+.menubutton.popup.split:hover {
+    background: url(../images/ddarrowsplit.png) no-repeat right -38px;
+}
+
+## Popup menu styles
+
+.overlay-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    margin: -1em;
+    background-color: rgba(0,0,0,0.5);
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    z-index: -1;
+}
+
+div.popmenu-wrapper {
+
+    position: absolute;
+    top: 100%;
+    z-index: 20000;
+
+    ul {
+        
+        display: block;
+        margin: 0;
+        padding: 0;
+        
+        background: white;
+        color: #333;
+        font-weight: bold;    
+        font-style: normal;
+        white-space: nowrap;
+        border: solid #aaaaaa 1px;
+        padding: 3px 0;
+        -moz-border-radius: 0.5em;
+        -webkit-border-radius: 0.5em;
+        border-radius: 0.5em;
+        ## margin: -3px -0.5em;
+        ## min-width: 100%;
+        
+        .unselectable;
+        
+        li {
+            display: block;
+            padding: 3px 1em;
+            cursor: pointer;
+            border-top: solid transparent 1px;
+            border-bottom: solid transparent 1px;
+        }
+        
+        li.head {
+            color: #999;
+            font-style: italic;
+        }
+    }
+}
+
+div.popmenu-wrapper ul li:hover {
+    background: #EEEEFF;
+    border-color: #aaa;
+}
+
+div.popmenu-wrapper ul li.head:hover {
+    background: inherit;
+    border-color: transparent;
+}
+
+.popup-arrow {
+    cursor: pointer;
+    text-decoration: none;
+    color: #555;
+}
+
+.popup-arrow:hover {
+    color: black;
+}
+
+div.permissionContainer {
+    padding-left: 20px;
+}
+
+## Data grid style
+
+.grid-header {
+    padding-bottom: 1em;
+}
+
+.grid-header h2 {
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+
+.grid-header .title {
+    font-weight: bold;
+}
+
+.grid {
+    padding-top: 1em;
+    border-collapse: collapse;
+    width: 100%;
+}
+.grid tbody td {
+    border-top: solid #DDDDDD 1px;
+    border-bottom: solid #DDDDDD 1px;
+    padding: 0.5em 1em;
+}
+.grid tbody td:empty {
+    padding: 0;
+}
+.grid thead th {
+    background: $table_header_bg;
+    ## background-image: url(form_title_bg.png);
+    background-repeat: repeat-x;
+    background-position: top;
+    border-top: solid $table_border 1px;
+    border-bottom: solid $table_border 1px;
+    padding: 0.5em 1em;
+    text-align: left;
+}
+.grid tfoot td {
+    background-color: #F8F8F8;
+    border-top: solid #DDDDDD 1px;
+    border-bottom: solid #DDDDDD 1px;
+    padding: 0.5em 1em;
+}
+.grid .current {
+    background-color: #EEEEFF;
+}
+
+## Styles for areas of text content
+
+.text-content {
+
+    hr {
+            display:block;
+            background:black;
+            color:black;
+            width:100%;
+            height:1px;
+            border:none;
+            background:#aaa;
+            color:#aaa;
+    }
+    
+    table
+    {
+            border-collapse:collapse;
+            border-top:1px solid #ccc;
+            border-left:1px solid #ccc;
+    }
+    
+    blockquote {
+            color:#666;
+    }
+    
+    fieldset {
+            border-color:#ccc;
+            border:1px solid #ccc;
+    }
+    
+    th,td {
+            border-bottom:1px solid #ddd;
+            border-right:1px solid #ccc;
+    }
+    
+    th,td {
+            padding:.8em;
+    }
+
+}

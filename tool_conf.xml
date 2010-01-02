@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<toolbox>
+  <section name="Get Data" id="getext">
+    <tool file="data_source/upload.xml"/>
+  </section>
+  <section name="Text Manipulation" id="textutil">
+    <tool file="filters/fixedValueColumn.xml" />
+    <tool file="stats/column_maker.xml" />
+    <tool file="filters/catWrapper.xml" />
+    <tool file="filters/condense_characters.xml" />
+    <tool file="filters/convert_characters.xml" />
+    <tool file="filters/mergeCols.xml" />
+    <tool file="filters/CreateInterval.xml" />
+    <tool file="filters/cutWrapper.xml" />
+    <tool file="filters/changeCase.xml" />
+    <tool file="filters/pasteWrapper.xml" />
+    <tool file="filters/remove_beginning.xml" />
+    <tool file="filters/headWrapper.xml" />
+    <tool file="filters/tailWrapper.xml" />
+    <tool file="filters/trimmer.xml" />
+  </section>
+  <section name="Clustering Tools" id="ClusteringTools">
+      <tool file="clustering_tools/kmedoid_tool.xml" />
+  </section>
+  <section name="Statistics" id="stats">
+    <tool file="stats/gsummary.xml" />
+    <tool file="filters/uniq.xml" />
+    <tool file="stats/cor.xml" />
+  </section>
+  <section name="Graph/Display Data" id="plots">
+    <tool file="plotting/histogram2.xml" />
+    <tool file="plotting/scatterplot.xml" />
+    <tool file="plotting/bar_chart.xml" />
+    <tool file="plotting/xy_plot.xml" />
+    <tool file="visualization/GMAJ.xml" />
+    <tool file="visualization/LAJ.xml" />
+    <tool file="visualization/build_ucsc_custom_track.xml" />
+    <tool file="visualization/genetrack_indexer.xml" />
+    <tool file="visualization/genetrack_peak_prediction.xml" />
+  </section>
+</toolbox>

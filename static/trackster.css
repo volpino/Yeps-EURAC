@@ -1,0 +1,151 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    margin: 0 0;
+    padding: 0;
+    font-family: verdana;
+    font-size: 12px;
+    overflow: hidden;
+    background: #eeeeee;
+}
+
+#content {
+    width: 100%;
+}
+
+#center {
+    overflow: auto;
+}
+
+#nav-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+input {
+    font-size: 100%;
+}
+
+/*canvas{ 
+    border-left: 1px solid green;
+    border-right: 1px solid red; } /* debugging */
+#nav {
+    padding: 0 0;
+    color:#333;font-weight:bold;
+}
+
+#nav-controls {
+    text-align: center;
+    background:#cccccc;
+    background-image:url(style/panel_header_bg.png);
+    background-position:top center;
+    background-repeat:repeat-x;
+    padding-bottom: 5px;
+}
+
+#nav-controls a {
+    color: white;
+    padding: 0.1em 0.4em;
+    margin: 0 0;
+    text-decoration: none;
+    background: black;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+}
+
+#overview {
+    width: 100%;
+    margin: 0px;
+    color: white;
+    margin-top: 10px;
+}
+
+#overview-viewport {
+    position: relative;
+    height: 14px;
+/*    border-top: solid #666 1px;*/
+/*    border-bottom: solid #aaa 1px;*/
+    background: white;
+    border-top: solid gray 1px;
+    border-bottom: solid gray 1px;
+    margin: 5px 0;
+}
+#overview-box {
+    position: absolute;
+    margin-top: 0px;
+    height: 14px;
+    background: #ddd url(images/visualization/draggable_horizontal.png) center center no-repeat;
+    /*border-style: outset;*/
+}
+
+#viewport {
+    overflow-x: hidden;
+    background-color: #fff;
+/*    overflow: scroll;*/
+/*    border-bottom: 2px solid black;*/
+}
+
+#viewport-canvas {
+    width: 100%;
+    height: 100px;
+}
+
+.yaxislabel {
+    color: #777;
+}
+/* Line track needs borders to show range */
+.line-track .track-content {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+    
+.track {
+    /* border-top: solid #DDDDDD 1px; */
+    /* border-bottom: solid #DDDDDD 1px; */
+    background: white;
+}
+
+.track-header {
+    text-align: left;
+    padding: 4px;
+    color: #666;
+}
+
+.track-content {
+    overflow: hidden;
+    text-align: center;
+}
+
+.track.error {
+    background-color: #ECB4AF;
+}
+.track.nodata {
+    background-color: #ddd;
+}
+
+.loading {
+    min-height: 100px;
+}
+
+.label-track {
+    /* font-weight: bold; */
+    /* font-size: 10px; */
+
+}
+.label-track .label {
+    border-left: solid #999 1px;
+    padding: 1px;
+    display: inline-block;
+}
+
+#top-labeltrack {
+    border-bottom: solid #999 1px;
+}
+
+#nav-labeltrack {
+    border-top: solid #999 1px;
+    border-bottom: solid #999 1px;
+}
