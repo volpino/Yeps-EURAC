@@ -3,7 +3,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 5
-_modified_time = 1262381896.9711201
+_modified_time = 1262455474.663353
 _template_filename='templates/root/history.mako'
 _template_uri='root/history.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
@@ -18,21 +18,21 @@ def _mako_get_namespace(context, name):
         _mako_generate_namespaces(context)
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
-    # SOURCE LINE 321
-    ns = runtime.Namespace('__anon_0x48f47d0', context._clean_inheritance_tokens(), templateuri=u'../tagging_common.mako', callables=None, calling_uri=_template_uri, module=None)
-    context.namespaces[(__name__, '__anon_0x48f47d0')] = ns
-
     # SOURCE LINE 322
-    ns = runtime.Namespace('__anon_0x48f4950', context._clean_inheritance_tokens(), templateuri=u'history_common.mako', callables=None, calling_uri=_template_uri, module=None)
-    context.namespaces[(__name__, '__anon_0x48f4950')] = ns
+    ns = runtime.Namespace('__anon_0x42f4810', context._clean_inheritance_tokens(), templateuri=u'history_common.mako', callables=None, calling_uri=_template_uri, module=None)
+    context.namespaces[(__name__, '__anon_0x42f4810')] = ns
+
+    # SOURCE LINE 321
+    ns = runtime.Namespace('__anon_0x42f46d0', context._clean_inheritance_tokens(), templateuri=u'../tagging_common.mako', callables=None, calling_uri=_template_uri, module=None)
+    context.namespaces[(__name__, '__anon_0x42f46d0')] = ns
 
 def render_body(context,**pageargs):
     context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x48f47d0')._populate(_import_ns, [u'render_tagging_element'])
-        _mako_get_namespace(context, '__anon_0x48f4950')._populate(_import_ns, [u'render_dataset'])
+        _mako_get_namespace(context, '__anon_0x42f4810')._populate(_import_ns, [u'render_dataset'])
+        _mako_get_namespace(context, '__anon_0x42f46d0')._populate(_import_ns, [u'render_tagging_element'])
         map = _import_ns.get('map', context.get('map', UNDEFINED))
         datasets = _import_ns.get('datasets', context.get('datasets', UNDEFINED))
         show_deleted = _import_ns.get('show_deleted', context.get('show_deleted', UNDEFINED))
