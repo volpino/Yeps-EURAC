@@ -16,17 +16,11 @@
       <option value="euclidean">Euclidean</option>
       <option value="pearson">Pearson</option>
     </param>
-    <conditional name="fastdtw">
-      <param name="fast" type="select" label="Fast DTW">
-        <option value="False">False</option>
-        <option value="True">True</option>
-      </param>
-      <when value="True">
-        <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
-      </when>
-      <when value="False">
-      </when>
-    </conditional>
+    <param name="fast" type="select" label="Fast DTW">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </param>
+    <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
     <param name="seed" type="text" value="None" label="Seed for random function" />
     <param name="tol" type="float" value="0.0001" label="Tolerance of the algorithm" />
   </inputs>
