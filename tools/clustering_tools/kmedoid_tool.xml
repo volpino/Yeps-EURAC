@@ -1,6 +1,6 @@
 <tool id="kmedoid_tool" name="KMedoid">
   <description>Clustering tool for time series</description>
-  <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output -p $plot</command>
+  <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output</command>
   <inputs>
     <param format="tabular" name="input" type="data" label="Source file"/>
     <param name="k" type="integer" value="2" label="Number of clusters" />
@@ -18,31 +18,10 @@
     <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
     <param name="seed" type="text" value="None" label="Seed for random function" />
     <param name="tol" type="float" value="0.0001" label="Tolerance of the algorithm" />
-    <param name="plot" type="select" label="Output format">
-      <option value="False">Report</option>
-      <option value="True">Clusters plot</option>
-    </param>
   </inputs>
   <outputs>
-    <data format="txt" name="output">
-      <change_format>
-        <when input="plot" value="True" format="png" />
-      </change_format>
-    </data>
+    <data format="tabular" name="output" />
   </outputs>
-  <tests>
-    <test>
-      <param name="input" value="clust1_kmedoid1_in.txt" />
-      <param name="sep" value="|" />
-      <param name="k" value="2" />
-      <param name="it" value="None" />
-      <param name="dist" value="ddtw" />
-      <param name="fastdtw.fast" value="False" />
-      <param name="seed" value="None" />
-      <param name="tol" value="0.0001" />
-      <output name="out_file1" file="clust1_kmedoid1_out.txt" />
-    </test>
-  </tests>
   <help>
 .. class:: infomark
 
