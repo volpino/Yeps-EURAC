@@ -1,0 +1,28 @@
+<tool id="cluster_plot" name="Plot Clusters">
+  <description>tool for plotting clusters</description>
+  <command interpreter="python">cluster_plot.py $input1 $input2 $output</command>
+  <inputs>
+    <param format="tabular" name="input1" type="data" label="Kmedoid file"/>
+    <param format="tabular" name="input2" type="data" label="Time Series file"/>
+  </inputs>
+  <outputs>
+    <data format="png" name="output" />
+  </outputs>
+  <help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool computes a KMedoid algorithm over a certain number of time series
+
+**Example**
+
+- Sample plot output:
+
+.. image:: static/images/kmedoid_plot.png
+
+</help>
+</tool>
+
