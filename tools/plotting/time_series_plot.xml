@@ -1,18 +1,29 @@
 <tool id="time_series_plot" name="Plot Time Series">
     <description>Time series plotting tool</description>
-    <command interpreter="python">time_series_plot.py $sep $input $output</command>
+    <command interpreter="python">time_series_plot.py tab $input $output</command>
     <inputs>
         <param format="tabular" name="input" type="data" label="Source file"/>
-        <param name="sep" type="select" label="Separator">
-          <option value="tab">TAB</option>
-          <option value="|">Pipe</option>
-          <option value=",">Comma</option>
-        </param>
     </inputs>
     <outputs>
         <data format="png" name="output" />
     </outputs>
     <help>
-      This tool plots the time series in a png image
+       .. class:: infomark
+       **TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+       -----
+
+       This tool plots the time series in a png image
+
+       ** Example **
+
+       - Input file must be tabular (separated by tabs) and well structured like ::
+           id   a   b   c   d
+           id1  1   9   2   0
+           id2  5   2   4   2
+           id3  2   3   5   1
+
+
+       - Sample output::
+           image:static/images/time_series_plot.png
     </help>
 </tool>
