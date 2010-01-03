@@ -4,8 +4,8 @@
   <inputs>
     <param format="tabular" name="input" type="data" label="Source file"/>
     <param name="sep" type="select" label="Separator">
-      <option value="|">Pipe</option>
       <option value="tab">TAB</option>
+      <option value="|">Pipe</option>
       <option value=",">Comma</option>
     </param>
     <param name="k" type="integer" value="2" label="Number of clusters" />
