@@ -43,6 +43,12 @@ if not options.k:
 if not options.foutp:
 	parser.error("option -o (output) is required")
 
+if options.nrip == 'None':
+    options.nrip = None
+if options.seed == 'None':
+    options.seed = None
+
+
 print "Parameters:"
 print "data ",options.finp
 print "separator ",options.sep
