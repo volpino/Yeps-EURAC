@@ -60,7 +60,6 @@ elif options.seed:
         parser.error("option -S: invalid value")
 
 print "Parameters:"
-print "data ",options.finp
 print "separator ",options.sep
 print "cluster ",options.k
 print "iteration ",options.nrip

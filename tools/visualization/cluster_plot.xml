@@ -15,7 +15,8 @@
 
 -----
 
-This tool computes a KMedoid algorithm over a certain number of time series
+This tool takes as input the tabular file produced by the Kmedoid algorithm and the
+time series files. It generates a plot image of the clusters (in different colors).
 
 **Example**
 
