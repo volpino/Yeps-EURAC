@@ -14,7 +14,7 @@ except KeyError:
 r = csv.reader(open(input1), delimiter='\t')
 l = []
 for row in r:
-    l.append(row)
+    l.append([int(i) for i in row])
 
 centroidsid = array(l[0])
 mini = array(l[1])
@@ -28,7 +28,6 @@ for i in range(centroidsid.shape[0]):
 f=open(output,"w")
 writer = csv.writer(f, delimiter='\t', lineterminator='\n')
 
-f.write("Call: iteration %s, distance %s, fast %s, radius %d, seed %s, tollerance %f\n" % (options.nrip,options.met, options.fast,options.radius,options.seed,options.error))
 f.write("centroid.matrix\n")
 writer.writerows(centroid_matrix)
 

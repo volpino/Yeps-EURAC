@@ -16,8 +16,12 @@ except KeyError:
     exit(1)
 
 r = csv.reader(open(input1), delimiter='\t')
-centroidsid = array(r[0])
-mini = array(r[1])
+l = []
+for row in r:
+    l.append([int(i) for i in row])
+
+centroidsid = array(l[0])
+mini = array(l[1])
 
 x, mat, header, title = iodata.load_csv(input2, '\t')
 
