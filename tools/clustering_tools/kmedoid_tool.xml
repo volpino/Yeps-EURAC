@@ -1,6 +1,6 @@
 <tool id="kmedoid_tool" name="KMedoid">
   <description>Clustering tool for time series</description>
-  <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output</command>
+  <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output -p $plot -O $plotout</command>
   <inputs>
     <param format="tabular" name="input" type="data" label="Source file"/>
     <param name="k" type="integer" value="2" label="Number of clusters" />
@@ -18,9 +18,16 @@
     <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
     <param name="seed" type="text" value="None" label="Seed for random function" />
     <param name="tol" type="float" value="0.0001" label="Tolerance of the algorithm" />
+    <param name="plot" type="select" label="Output format">
+      <option value="False">Report</option>
+      <option value="True">Clusters plot</option>
+    </param>
   </inputs>
   <outputs>
     <data format="txt" name="output" />
+    <change_format>
+    	<when input="plot" value="True" format="png" />
+    </change_format>
   </outputs>
   <tests>
     <test>
@@ -53,7 +60,7 @@ This tool computes a KMedoid algorithm over a certain number of time series
     id2  5   2   4   2
     id3  2   3   5   1
 
-- Sample output::
+- Sample report output::
 
     Call: iteration None, distance ddtw, fast True, radius 20, seed None, tollerance 0.000100
     centroid.matrix
@@ -69,6 +76,10 @@ This tool computes a KMedoid algorithm over a certain number of time series
     1   1
     2   1
     3   3
+
+- Sample plot output:
+
+.. image:: static/images/kmedoid_plot.png
 
 </help>
 </tool>
