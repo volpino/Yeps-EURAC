@@ -21,9 +21,9 @@ mini = array(l[1])
 
 x, mat, header, title = iodata.load_csv(input2, '\t')
 
-centroid_matrix = zeros((matt.shape[0], centroidsid.shape[0]))
+centroid_matrix = zeros((mat.shape[0], centroidsid.shape[0]))
 for i in range(centroidsid.shape[0]):
-    centroid_matrix[:, i] = matt[:, centroidsid[i]-1]
+    centroid_matrix[:, i] = mat[:, centroidsid[i]-1]
 
 f=open(output,"w")
 writer = csv.writer(f, delimiter='\t', lineterminator='\n')
