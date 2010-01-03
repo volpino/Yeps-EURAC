@@ -1,6 +1,6 @@
 <tool id="kmedoid_tool" name="KMedoid">
   <description>Clustering tool for time series</description>
-  <command interpreter="python">kmedoid_tool.py -d $input -s $sep -c $k -i $it -D $dist -f $fastdtw.fast -r $fastdtw.radius -S $seed -t $tol -o $output</command>
+  <command interpreter="python">kmedoid_tool.py -d $input -s $sep -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output</command>
   <inputs>
     <param format="tabular" name="input" type="data" label="Source file"/>
     <param name="sep" type="select" label="Separator">
