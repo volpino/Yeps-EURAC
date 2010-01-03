@@ -1,0 +1,18 @@
+<tool id="time_series_plot" name="Plot Time Series">
+    <description>Time series plotting tool</description>
+    <command interpreter="python">time_series_plot.py $sep $input $output</command>
+    <inputs>
+        <param format="tabular" name="input" type="data" label="Source file"/>
+        <param name="sep" type="select" label="Separator">
+          <option value="tab">TAB</option>
+          <option value="|">Pipe</option>
+          <option value=",">Comma</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="png" name="output" />
+    </outputs>
+    <help>
+      This tool plots the time series in a png image
+    </help>
+</tool>
