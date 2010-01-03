@@ -15,18 +15,18 @@ parser.add_option("-s", "--separator", type = "string",
                   dest = "sep", help = "separator - required")
 parser.add_option("-c", "--cluster", type = "int",
                   dest = "k", help = "number of cluster - required")
-parser.add_option("-i", "--iteration",  type = "int", dest = "nrip",
+parser.add_option("-i", "--iteration",  type = "str", dest = "nrip",
                   help = "number of iteration, default=None", default=None)
 parser.add_option("-D", "--distance", type = "string",
                   dest = "met", help = "distance: dtw,ddtw,euclidean,pearson,default=ddtw", default="ddtw")
 parser.add_option("-f", "--fast", action = "store_true", default = False,
                   dest = "fast", help = "Fast dtw, default = False")
 parser.add_option("-r", "--radius", type = "int",
-                  dest = "radius", help = "Accuracy of FastDtw, default =20", default =20)
-parser.add_option("-S", "--Seed", type = "int",
-                  dest = "seed", help = "Seed for function random, default = None", default = None)
+                  dest = "radius", help = "Accuracy of FastDtw, default=20", default=20)
+parser.add_option("-S", "--Seed", type = "str",
+                  dest = "seed", help = "Seed for function random, default = None", default=None)
 parser.add_option("-t", "--tolerance", type = "float",
-                  dest = "error", help = "tolerance of algorithm, default = 0.0001", default = 0.0001)
+                  dest = "error", help = "tolerance of algorithm, default = 0.0001", default=0.0001)
 parser.add_option("-o", "--output", metavar = "CSV",
                   dest = "foutp", help = "name file output - required")
 
@@ -45,9 +45,18 @@ if not options.foutp:
 
 if options.nrip == 'None':
     options.nrip = None
+else:
+    try:
+        options.nrip = int(options.nrip)
+    except ValueError:
+        parser.error("option -i: invalid value")
 if options.seed == 'None':
     options.seed = None
-
+else:
+    try:
+        options.seed = int(options.seed)
+    except ValueError:
+        parser.error("option -S: invalid value")
 
 print "Parameters:"
 print "data ",options.finp
