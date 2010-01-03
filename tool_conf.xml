@@ -7,7 +7,9 @@
       <tool file="clustering_tools/kmedoid_tool.xml" />
   </section>
   <section name="Graph/Display Data" id="plots">
-    <tool file="plotting/time_series_plot.xml" />
+      <tool file="plotting/time_series_plot.xml" />
+      <tool file="visualization/cluster_plot.xml" />
+      <tool file="visualization/cluster_report.xml" />
   </section>
   <section name="Text Manipulation" id="textutil">
     <tool file="filters/fixedValueColumn.xml" />

@@ -28,8 +28,8 @@ parser.add_option("-t", "--tolerance", type = "float",
                   dest = "error", help = "tolerance of algorithm, default = 0.0001", default=0.0001)
 parser.add_option("-o", "--output", metavar = "CSV",
                   dest = "foutp", help = "name file output - required")
-parser.add_option("-p", "--plot", type = "str",
-                  dest = "plot", help = "plot clusters (True/False), default = False", default=False)
+#parser.add_option("-p", "--plot", type = "str",
+#                  dest = "plot", help = "plot clusters (True/False), default = False", default=False)
 (options, args) = parser.parse_args()
 
 if not options.finp:
@@ -80,6 +80,12 @@ m = kmedoid.Medoid(options.nrip,
 matt = mat.T
 centroidsid, mini = m.compute(options.k, matt)
 
+w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
+w.writerow(centroidsid)
+w.writerow(mini)
+
+
+"""
 if options.plot == "True":
 	import matplotlib
 	matplotlib.use("Agg")
@@ -121,3 +127,4 @@ else:
 	for i in range(mini.shape[0]):
 		writer.writerow([i+1, int(mini[i])])
 	f.close()
+"""
