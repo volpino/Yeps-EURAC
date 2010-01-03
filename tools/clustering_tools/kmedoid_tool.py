@@ -7,7 +7,7 @@ import iodata
 import csv
 
 
-# Command line parsing
+# Command line parsin
 parser = OptionParser()
 parser.add_option("-d", "--data", metavar = "CSV",
                   dest = "finp", help = "data - required")
