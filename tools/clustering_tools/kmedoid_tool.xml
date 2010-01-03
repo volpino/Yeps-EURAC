@@ -24,10 +24,11 @@
     </param>
   </inputs>
   <outputs>
-    <data format="txt" name="output" />
-    <change_format>
-    	<when input="plot" value="True" format="png" />
-    </change_format>
+    <data format="txt" name="output">
+      <change_format>
+        <when input="plot" value="True" format="png" />
+      </change_format>
+    </data>
   </outputs>
   <tests>
     <test>
