@@ -36,38 +36,40 @@
     </test>
   </tests>
   <help>
-    .. class:: infomark
-    **TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert* 
-    -----
+.. class:: infomark
 
-    This tool computes a KMedoid algorithm over a certain number of time series
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
 
-    ** Example **
+-----
 
-    - Input file must be tabular (separated by tabs) and well structured like ::
-           id   a   b   c   d
-           id1  1   9   2   0
-           id2  5   2   4   2
-           id3  2   3   5   1
+This tool computes a KMedoid algorithm over a certain number of time series
 
-    - Sample output::
-           Call: iteration None, distance ddtw, fast True, radius 20, seed None, tollerance 0.000100
-           centroid.matrix
-           5.2  5.0
-           2.43 3.0
-           1.0  3.21
-           4.0  8.0
+**Example**
 
-           centroid.idx
-           3   1
+- Input file must be tabular (separated by tabs) and well structured like::
 
-           groups
-           1   1
-           2   1
-           3   3
+    id   a   b   c   d
+    id1  1   9   2   0
+    id2  5   2   4   2
+    id3  2   3   5   1
 
+- Sample output::
 
-  </help>
+    Call: iteration None, distance ddtw, fast True, radius 20, seed None, tollerance 0.000100
+    centroid.matrix
+    5.2  5.0
+    2.43 3.0
+    1.0  3.21
+    4.0  8.0
 
+    centroid.idx
+    3   1
+
+    groups
+    1   1
+    2   1
+    3   3
+
+</help>
 </tool>
 

@@ -8,22 +8,26 @@
         <data format="png" name="output" />
     </outputs>
     <help>
-       .. class:: infomark
-       **TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
-       -----
+.. class:: infomark
 
-       This tool plots the time series in a png image
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
 
-       ** Example **
+-----
 
-       - Input file must be tabular (separated by tabs) and well structured like ::
-           id   a   b   c   d
-           id1  1   9   2   0
-           id2  5   2   4   2
-           id3  2   3   5   1
+This tool plots the time series in a png image
 
+**Example**
 
-       - Sample output::
-           image:static/images/time_series_plot.png
-    </help>
+- Input file must be tabular (separated by tabs) and well structured like ::
+
+    id   a   b   c   d
+    id1  1   9   2   0
+    id2  5   2   4   2
+    id3  2   3   5   1
+
+- Sample output:
+
+.. image:: static/images/time_series_plot.png
+
+</help>
 </tool>
