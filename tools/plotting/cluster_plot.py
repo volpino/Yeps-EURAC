@@ -47,4 +47,4 @@ for cluster in clusters.values():
         plt.setp(line, color=colours[i])
     i += 1
 plt.ylabel(title)
-plt.savefig(output)
+plt.savefig(output, format=format)

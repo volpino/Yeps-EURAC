@@ -29,4 +29,4 @@ for time_series in mat:
 
 plt.ylabel(title)
 #plt.xticks(xrange(len(header)), header, rotation=90)
-plt.savefig(output)
+plt.savefig(output, format=format)
