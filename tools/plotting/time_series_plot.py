@@ -3,17 +3,22 @@
 from sys import argv
 import iodata
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-
 try:
     sep = argv[1]
-    input = argv[2]
-    output = argv[3]
+    format = argv [2]
+    input = argv[3]
+    output = argv[4]
 except IndexError:
-    print "Usage: script <separator> <input> <output>"
+    print "Usage: script <separator> <format> <input> <output>"
     exit(1)
+
+import matplotlib
+if format == "png":
+    matplotlib.use("Agg")
+elif format == "pdf":
+    matplotlib.use("PDF")
+import matplotlib.pyplot as plt
+
 if sep == "tab":
     sep = "\t"
 
@@ -24,4 +29,4 @@ for time_series in mat:
 
 plt.ylabel(title)
 #plt.xticks(xrange(len(header)), header, rotation=90)
-plt.savefig(output, format="png")
+plt.savefig(output)

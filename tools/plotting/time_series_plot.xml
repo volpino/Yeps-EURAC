@@ -1,11 +1,19 @@
 <tool id="time_series_plot" name="Plot Time Series">
     <description>Time series plotting tool</description>
-    <command interpreter="python">time_series_plot.py tab $input $output</command>
+    <command interpreter="python">time_series_plot.py tab $format $input $output</command>
     <inputs>
         <param format="tabular" name="input" type="data" label="Source file"/>
+        <param name="format" type="select" label="Output format">
+          <option value="png">Image</option>
+          <option value="pdf">PDF</option>
+        </param>
     </inputs>
     <outputs>
-        <data format="png" name="output" />
+        <data format="png" name="output">
+          <change_format>
+            <when input="format" value="pdf" format="pdf" />
+          </change_format>
+        </data>
     </outputs>
     <help>
 .. class:: infomark

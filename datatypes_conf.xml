@@ -9,4 +9,6 @@
        <datatype extension="tabular" type="galaxy.datatypes.tabular:Tabular" display_in_upload="true"/>
         <datatype extension="txt" type="galaxy.datatypes.data:Text" display_in_upload="true"/>
     </registration>
+    <sniffers>
+    </sniffers>
 </datatypes>

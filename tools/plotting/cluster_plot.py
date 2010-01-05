@@ -1,19 +1,24 @@
 from numpy import *
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import csv
 import iodata
 
 from sys import argv
 
 try:
-    input1 = argv[1]
-    input2 = argv[2]
-    output = argv[3]
+    format = argv[1]
+    input1 = argv[2]
+    input2 = argv[3]
+    output = argv[4]
 except KeyError:
     print "Invalid input!"
     exit(1)
+
+import matplotlib
+if format == "png":
+    matplotlib.use("Agg")
+elif format == "pdf":
+    matplotlib.use("PDF")
+import matplotlib.pyplot as plt
 
 r = csv.reader(open(input1), delimiter='\t')
 l = []
@@ -42,4 +47,4 @@ for cluster in clusters.values():
         plt.setp(line, color=colours[i])
     i += 1
 plt.ylabel(title)
-plt.savefig(output, format="png")
+plt.savefig(output)
