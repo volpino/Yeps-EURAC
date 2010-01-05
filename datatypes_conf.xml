@@ -1,35 +1,12 @@
 <?xml version="1.0"?>
 <datatypes>
     <registration converters_path="lib/galaxy/datatypes/converters">
-        <datatype extension="tabular" type="galaxy.datatypes.tabular:Tabular" display_in_upload="true"/>
+       <datatype extension="gif" type="galaxy.datatypes.images:Image" mimetype="image/gif"/>
+       <datatype extension="html" type="galaxy.datatypes.images:Html" mimetype="text/html"/>
+       <datatype extension="jpg" type="galaxy.datatypes.images:Image" mimetype="image/jpeg"/>
+       <datatype extension="pdf" type="galaxy.datatypes.images:Image" mimetype="application/pdf"/>
+        <datatype extension="png" type="galaxy.datatypes.images:Image" mimetype="image/png"/>
+       <datatype extension="tabular" type="galaxy.datatypes.tabular:Tabular" display_in_upload="true"/>
         <datatype extension="txt" type="galaxy.datatypes.data:Text" display_in_upload="true"/>
     </registration>
-    <sniffers>
-        <!--
-          The order in which Galaxy attempts to determine data types is 
-          important because some formats are much more loosely defined 
-          than others.  The following list should be the most rigidly 
-          defined format first, followed by next-most rigidly defined, 
-          and so on.
-        -->
-        <sniffer type="galaxy.datatypes.binary:Bam"/>
-        <sniffer type="galaxy.datatypes.binary:Sff"/>
-        <sniffer type="galaxy.datatypes.xml:BlastXml"/>
-        <sniffer type="galaxy.datatypes.sequence:Maf"/>
-        <sniffer type="galaxy.datatypes.sequence:Lav"/>
-        <sniffer type="galaxy.datatypes.sequence:csFasta"/>
-        <sniffer type="galaxy.datatypes.qualityscore:QualityScoreSOLiD"/>
-        <sniffer type="galaxy.datatypes.qualityscore:QualityScore454"/>
-        <sniffer type="galaxy.datatypes.sequence:Fasta"/>
-        <sniffer type="galaxy.datatypes.sequence:Fastq"/>
-        <sniffer type="galaxy.datatypes.interval:Wiggle"/>
-        <sniffer type="galaxy.datatypes.images:Html"/>
-        <sniffer type="galaxy.datatypes.sequence:Axt"/>
-        <sniffer type="galaxy.datatypes.interval:Bed"/>
-        <sniffer type="galaxy.datatypes.interval:CustomTrack"/>
-        <sniffer type="galaxy.datatypes.interval:Gff"/>
-        <sniffer type="galaxy.datatypes.interval:Gff3"/>
-        <sniffer type="galaxy.datatypes.interval:Interval"/>
-        <sniffer type="galaxy.datatypes.tabular:Sam"/>
-    </sniffers>
 </datatypes>
