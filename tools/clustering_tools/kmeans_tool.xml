@@ -1,4 +1,4 @@
-<tool id="kmedoid_tool" name="K-Medoid">
+<tool id="kmedoid_tool" name="KMedoid">
   <description>Clustering tool for time series</description>
   <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output</command>
   <inputs>
@@ -29,7 +29,7 @@
 
 -----
 
-This tool computes a K-Medoid algorithm over a certain number of time series
+This tool computes a K-Means algorithm over a certain number of time series
 
 **Example**
 

@@ -1,5 +1,5 @@
-<tool id="kmedoid_tool" name="K-Medoid">
-  <description>Clustering tool for time series</description>
+<tool id="knn_tool" name="k-NN">
+  <description>Classification tool for time series</description>
   <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output</command>
   <inputs>
     <param format="tabular" name="input" type="data" label="Source file"/>
@@ -29,7 +29,7 @@
 
 -----
 
-This tool computes a K-Medoid algorithm over a certain number of time series
+This tool computes a k-NN algorithm over a certain number of time series
 
 **Example**
 
