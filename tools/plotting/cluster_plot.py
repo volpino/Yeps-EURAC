@@ -9,7 +9,7 @@ try:
     input1 = argv[2]
     input2 = argv[3]
     output = argv[4]
-except KeyError:
+except IndexError:
     print "Invalid input!"
     exit(1)
 
@@ -38,13 +38,13 @@ for c in mini:
     except KeyError:
         clusters[c] = [mat[i]]
     i += 1
-colours = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
+
+colours = ['b', 'r', 'g', 'c', 'm', 'y', 'k', 'w']
 i = 0
-for cluster in clusters.values():
+for key in clusters.keys():
     i = i % len(colours)
-    for time_series in cluster:
-        line = plt.plot(time_series)
-        plt.setp(line, color=colours[i])
+    for time_series in clusters[key]:
+        plt.plot(time_series, colours[i])
     i += 1
 plt.ylabel(title)
 plt.savefig(output, format=format)
