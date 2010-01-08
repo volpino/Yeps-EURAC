@@ -283,7 +283,7 @@ var updater_callback = function ( tracked_datasets ) {
 
 <style>
 .historyItemBody {
-    display: none;
+    display: block;
 }
 </style>
 
