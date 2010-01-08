@@ -7,7 +7,7 @@ try:
     input1 = argv[1]
     input2 = argv[2]
     output = argv[3]
-except KeyError:
+except IndexError:
     print "Invalid input!"
     exit(1)
 

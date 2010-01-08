@@ -10,7 +10,7 @@ try:
     input2 = argv[3]
     output = argv[4]
 except IndexError:
-    print "Invalid input!"
+    print "Usage: cluster_plot.py <format> <input1> <input2> <output>"
     exit(1)
 
 import matplotlib

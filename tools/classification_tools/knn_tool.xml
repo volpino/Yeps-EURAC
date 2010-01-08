@@ -1,10 +1,10 @@
 <tool id="knn_tool" name="k-NN">
   <description>Classification tool for time series</description>
-  <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output</command>
+  <command interpreter="python">knn_tool.py -t $training -c $clusters -D $dist -f $fast -r $radius -k $k -o $output -p $pu</command>
   <inputs>
-    <param format="tabular" name="input" type="data" label="Source file"/>
-    <param name="k" type="integer" value="2" label="Number of clusters" />
-    <param name="it" type="text" value="None" label="Number of iterations" />
+    <param format="tabular" name="training" type="data" label="Training file"/>
+    <param format="tabular" name="clusters" type="data" label="Clusters file"/>
+    <param name="k" type="integer" value="1" label="K" />
     <param name="dist" type="select" label="Distance">
       <option value="ddtw">Derivative DTW</option>
       <option value="dtw">DTW</option>
@@ -16,8 +16,10 @@
       <option value="True">True</option>
     </param>
     <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
-    <param name="seed" type="text" value="None" label="Seed for random function" />
-    <param name="tol" type="float" value="0.0001" label="Tolerance of the algorithm" />
+    <param name="pu" type="select" label="Compute using: ">
+      <option value="CPU">CPU</option>
+      <option value="GPU">GPU</option>
+    </param>
   </inputs>
   <outputs>
     <data format="tabular" name="output" />
@@ -33,16 +35,20 @@ This tool computes a k-NN algorithm over a certain number of time series
 
 **Example**
 
-- Input file must be tabular (separated by tabs) and well structured like::
+- Input files must be tabular (separated by tabs) and well structured
+  Training file: the first row is the time series to classify and the
+  other ones are the time series db::
 
-    id   a   b   c   d
-    id1  1   9   2   0
-    id2  5   2   4   2
-    id3  2   3   5   1
+    1   2   3   4   5
+    1   2   3   4   5
+    5   4   3   2   1
+    5   4   4   2   1
+    2   2   3   4   5
 
-- Output: a tabular file with the algorithm data. You can plot clusters or
-  get a report using the tools in *Graph/Display Data*
+  Clusters file: file produced by one of the clustering algorithms
 
+- Output: a tabular file containing the indexes of the centroids similar
+  to the time series to classify.
 
 </help>
 </tool>
