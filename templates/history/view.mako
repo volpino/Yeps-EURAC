@@ -284,7 +284,7 @@
 
             <style>
             .historyItemBody {
-                display: none;
+                display: block;
             }
             </style>
 
