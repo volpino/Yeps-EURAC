@@ -8,6 +8,10 @@ import csv
 parser = OptionParser()
 parser.add_option("-t", "--training", metavar = "CSV",
                   dest = "training", help = "training data - required")
+parser.add_option("-s", "--test-set", metavar = "CSV",
+                  dest = "testset", help = "test set data - required")
+parser.add_option("-l", "--labels", metavar = "CSV",
+                  dest = "labels", help = "labels file - required")
 parser.add_option("-c", "--clusters",  type = "str", dest = "clusters",
                   help = "file produced by a clustering tool - required")
 parser.add_option("-D", "--distance", type = "string", dest = "dist",
@@ -29,8 +33,10 @@ options, args = parser.parse_args()
 
 if not options.training:
 	parser.error("option -t (training data) is required")
-if not options.clusters:
-	parser.error("option -c (clusters data) is required")
+if not options.testset:
+	parser.error("option -s (test set data) is required")
+if not options.labels:
+	parser.error("option -l (labels file) is required")
 if not options.foutp:
 	parser.error("option -o (output) is required")
 
@@ -41,16 +47,21 @@ print "fast", options.fast
 print "radius ",options.radius
 print "Computing on", options.pu
 
-clust_reader = csv.reader(open(options.clusters), delimiter='\t')
-clust = [row for row in clust_reader]
+#clust_reader = csv.reader(open(options.clusters), delimiter='\t')
+#clust = [row for row in clust_reader]
 
 train_reader = csv.reader(open(options.training), delimiter='\t')
 train = [row for row in train_reader]
 
-nn = knn.kNN(train[0],
-             train[1:],
-             clust[1],
-             clust[0],
+ts_reader = csv.reader(open(options.testset), delimiter='\t')
+ts = [row for row in ts_reader]
+
+labels_reader = csv.reader(open(options.labels), delimiter='\t')
+labels = [row for row in labels_reader]
+
+nn = knn.kNN(ts,
+             train,
+             labels,
              options.dist,
              options.fast,
              options.radius,
