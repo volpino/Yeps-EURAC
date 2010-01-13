@@ -16,6 +16,7 @@
     <tool file="visualization/cluster_report.xml" />
   </section>
   <section name="Text Manipulation" id="textutil">
+    <tool file="filters/extract_labels.xml" />
     <tool file="filters/fixedValueColumn.xml" />
     <tool file="stats/column_maker.xml" />
     <tool file="filters/catWrapper.xml" />
