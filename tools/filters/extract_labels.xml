@@ -2,7 +2,7 @@
   <description>from a tabular dataset</description>
   <command interpreter="python">extract_labels.py $col $input $data $labels</command>
   <inputs>
-    <param name="col" type="int" value="-1" label="Labels column"/>
+    <param name="col" type="text" value="-1" label="Labels column"/>
     <param format="tabular" name="input" type="data" label="Source file"/>
   </inputs>
   <outputs>

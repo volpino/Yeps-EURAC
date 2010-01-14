@@ -69,4 +69,5 @@ nn = knn.kNN(ts,
 res = nn.compute(options.k)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
-w.writerow(res)
+for line in res
+    w.writerow(line)
