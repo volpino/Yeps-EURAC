@@ -37,5 +37,4 @@ for elem in labels:
 
 for n, t in enumerate(ts):
     plt.plot(t, col[labels[n]])
-plt.ylabel(title)
 plt.savefig(output, format=format)
