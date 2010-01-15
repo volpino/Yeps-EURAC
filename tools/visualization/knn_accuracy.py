@@ -31,9 +31,8 @@ for i, elem in enumerate(test):
     except ValueError:
         pass
     else:
-        for label in train_labels[n]:
-            if label in test_labels[i]:
-                right += 1
-            else:
-                wrong += 1
+        if train_labels[n] == test_labels[i]:
+            right += 1
+        else:
+            wrong += 1
 print right, wrong, right+wrong
