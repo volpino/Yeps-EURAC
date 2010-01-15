@@ -22,6 +22,9 @@ test = [row for row in test_reader]
 test_labels_reader = csv.reader(open(test_labels), delimiter='\t')
 test_labels = [row for row in test_labels_reader]
 
+right = 0
+wrong = 0
+
 for i, elem in enumerate(test):
     try:
         n = train.index(elem)
