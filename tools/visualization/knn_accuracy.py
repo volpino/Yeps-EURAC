@@ -35,4 +35,14 @@ for i, elem in enumerate(test):
             right += 1
         else:
             wrong += 1
-print right, wrong, right+wrong
+report = """
+kNN accuracy report:
+
+Lenght of the train set:  %d
+Lenght of the test set:   %d
+Right classifications:    %d
+Wrong classifications:    %d
+""" % (len(test), right + wrong, right, wrong)
+
+out = open(output, 'w')
+out.write(report)
