@@ -36,7 +36,7 @@ for i, elem in enumerate(test):
         else:
             wrong += 1
 if wrong > 0:
-    acc = 100 - float(right) / wrong * 100)
+    acc = 100 - float(right) / wrong * 100
 else:
     acc = 100
 report = """
