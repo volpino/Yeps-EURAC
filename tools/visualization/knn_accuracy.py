@@ -13,7 +13,7 @@ except IndexError:
     exit(1)
 
 train_reader = csv.reader(open(train_set), delimiter='\t')
-train = [row for row in train_labels_reader]
+train = [row for row in train_reader]
 train_labels_reader = csv.reader(open(train_labels), delimiter='\t')
 train_labels = [row for row in train_labels_reader]
 
