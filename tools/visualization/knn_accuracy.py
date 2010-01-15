@@ -42,7 +42,7 @@ Lenght of the train set:  %d
 Lenght of the test set:   %d
 Right classifications:    %d
 Wrong classifications:    %d
-""" % (len(test), right + wrong, right, wrong)
+""" % (len(train), right + wrong, right, wrong)
 
 out = open(output, 'w')
 out.write(report)
