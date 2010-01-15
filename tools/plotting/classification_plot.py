@@ -32,7 +32,7 @@ col = {}
 i = 0
 for elem in labels:
     if not col.has_key(elem):
-        col[elem] = colours[i]
+        col[elem] = colours[i%len(colours)]
         i += 1
 
 for n, t in enumerate(ts):
