@@ -30,11 +30,13 @@ colours = ['b', 'r', 'g', 'c', 'm', 'y', 'k', 'w']
 
 col = {}
 i = 0
-for elem in labels:
+for k, elem in enumerate(labels):
     if not col.has_key(elem):
-        col[elem] = colours[i%len(colours)]
+        col[elem] = (i, colours[i%len(colours)])
         i += 1
-
+l=[]
 for n, t in enumerate(ts):
-    plt.plot(t, col[labels[n]])
+    l.append(plt.plot(t, col[labels[n]][1], label=labels[n]))
+
+plt.legend([l[labels.index(k)] for k in col.keys()], col.keys())
 plt.savefig(output, format=format)
