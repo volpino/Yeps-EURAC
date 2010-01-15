@@ -13,6 +13,7 @@
   <section name="Graph/Display Data" id="plots">
     <tool file="plotting/time_series_plot.xml" />
     <tool file="plotting/cluster_plot.xml" />
+    <tool file="plotting/classification_plot.xml" />
     <tool file="visualization/cluster_report.xml" />
     <tool file="visualization/knn_accuracy.xml" />
   </section>
