@@ -35,6 +35,10 @@ for i, elem in enumerate(test):
             right += 1
         else:
             wrong += 1
+if wrong > 0:
+    acc = 100 - float(right) / wrong * 100)
+else:
+    acc = 100
 report = """
 kNN accuracy report:
 
@@ -43,8 +47,7 @@ Lenght of the test set:   %d
 Right classifications:    %d
 Wrong classifications:    %d
 Accuracy:                 %d%
-""" % (len(train), right + wrong, right, wrong,
-       100 - float(right) / wrong * 100)
+""" % (len(train), right + wrong, right, wrong, acc)
 
 out = open(output, 'w')
 out.write(report)
