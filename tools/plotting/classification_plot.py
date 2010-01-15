@@ -28,13 +28,12 @@ ts = [row for row in ts_reader]
 
 colours = ['b', 'r', 'g', 'c', 'm', 'y', 'k', 'w']
 
-set = {}
-map(set.__setitem__, labels, [])
-lbl = set.keys()
-
 col = {}
-for i, elem in enumerate(lbl):
-    col[elem] = colours[i]
+i = 0
+for elem in labels:
+    if not col.has_key(elem):
+        col[elem] = colours[i]
+        i += 1
 
 for n, t in enumerate(ts):
     plt.plot(t, col[labels[n]])
