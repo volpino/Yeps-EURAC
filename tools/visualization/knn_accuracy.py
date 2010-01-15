@@ -46,7 +46,7 @@ Lenght of the train set:  %d
 Lenght of the test set:   %d
 Right classifications:    %d
 Wrong classifications:    %d
-Accuracy:                 %d%
+Accuracy:                 %d%%
 """ % (len(train), right + wrong, right, wrong, acc)
 
 out = open(output, 'w')
