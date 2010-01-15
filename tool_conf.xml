@@ -14,6 +14,7 @@
     <tool file="plotting/time_series_plot.xml" />
     <tool file="plotting/cluster_plot.xml" />
     <tool file="visualization/cluster_report.xml" />
+    <tool file="visualization/knn_accuracy.xml" />
   </section>
   <section name="Text Manipulation" id="textutil">
     <tool file="filters/extract_labels.xml" />
