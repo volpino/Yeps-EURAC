@@ -56,13 +56,13 @@ labels = [row for row in labels_reader]
 ts_reader = csv.reader(open(options.testset), delimiter='\t')
 ts = [row for row in ts_reader]
 
-nn = knn.kNN(ts,
-             train,
-             labels,
-             options.dist,
-             options.fast,
-             options.radius,
-             options.pu)
+nn = knn.kS(ts,
+            train,
+            labels,
+            options.dist,
+            options.fast,
+            options.radius,
+            options.pu)
 res = nn.compute(options.k)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
