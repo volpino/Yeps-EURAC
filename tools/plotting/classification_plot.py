@@ -21,7 +21,7 @@ elif format == "pdf":
 import matplotlib.pyplot as plt
 
 labels_reader = csv.reader(open(labels_file), delimiter='\t')
-labels = [row for row in labels_reader]
+labels = [row[0] for row in labels_reader]
 
 ts_reader = csv.reader(open(ts_file), delimiter='\t')
 ts = [row for row in ts_reader]
