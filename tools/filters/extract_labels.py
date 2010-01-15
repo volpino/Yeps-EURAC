@@ -23,7 +23,7 @@ w2 = open(out2, 'w')
 
 content = [row for row in r]
 
-for line in [row[col] for row in content[1:]]:
+for line in [row[col] for row in content]:
     w2.write("%s\n" % line)
 
 for line in content:
