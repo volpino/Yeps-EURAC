@@ -50,7 +50,7 @@ print "Computing on", options.pu
 train_reader = csv.reader(open(options.training), delimiter='\t')
 train = [row for row in train_reader]
 
-labels_reader = open(options.labels)
+labels_reader = csv.reader(open(options.labels), delimiter='\t')
 labels = [row for row in labels_reader]
 
 ts_reader = csv.reader(open(options.testset), delimiter='\t')
