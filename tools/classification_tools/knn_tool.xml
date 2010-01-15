@@ -1,6 +1,6 @@
 <tool id="knn_tool" name="k-NN">
   <description>Classification tool for time series</description>
-  <command interpreter="python">knn_tool.py -t $training -s $test_set -l $labels -D $dist -f $fast -r $radius -k $k -o $output -p $pu</command>
+  <command interpreter="python">knn_tool.py -t $training -l $labels -s $test_set -D $dist -f $fast -r $radius -k $k -o $output -p $pu</command>
   <inputs>
     <param format="tabular" name="test_set" type="data" label="Test set file"/>
     <param format="tabular" name="training" type="data" label="Training file"/>
@@ -37,19 +37,29 @@ This tool computes a k-NN algorithm over a certain number of time series
 **Example**
 
 - Input files must be tabular (separated by tabs) and well structured
-  Training file: the first row is the time series to classify and the
-  other ones are the time series db::
 
-    1   2   3   4   5
-    1   2   3   4   5
-    5   4   3   2   1
-    5   4   4   2   1
-    2   2   3   4   5
+  - Training file (each line is a time series)::
 
-  Clusters file: file produced by one of the clustering algorithms
+      1   2   3   4   5
+      1   2   3   4   5
+      5   4   3   2   1
+      5   4   4   2   1
+      2   2   3   4   5
 
-- Output: a tabular file containing the indexes of the centroids similar
-  to the time series to classify.
+  - Labels file (each label refers to a time series of the training file)::
+
+      group1
+      group1
+      group3
+      group3
+      group2
+
+  - Test set file (each line is a time series)::
+
+      1   2   3   4   5
+      4   5   6   2   5
+
+- Output: a tabular file containing the labels of any time series of the test set
 
 </help>
 </tool>
