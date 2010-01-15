@@ -51,7 +51,7 @@ train_reader = csv.reader(open(options.training), delimiter='\t')
 train = [row for row in train_reader]
 
 labels_reader = csv.reader(open(options.labels), delimiter='\t')
-labels = [row for row in labels_reader]
+labels = [row[0] for row in labels_reader]
 
 ts_reader = csv.reader(open(options.testset), delimiter='\t')
 ts = [row for row in ts_reader]
@@ -67,4 +67,4 @@ res = nn.compute(options.k)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
 for line in res:
-    w.writerow(line)
+    w.writerow(*line)
