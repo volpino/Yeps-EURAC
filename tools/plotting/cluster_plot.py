@@ -40,11 +40,14 @@ for c in mini:
     i += 1
 
 colours = ['b', 'r', 'g', 'c', 'm', 'y', 'k', 'w']
+lines = []
 i = 0
 for key in clusters.keys():
     i = i % len(colours)
-    for time_series in clusters[key]:
-        plt.plot(time_series, colours[i])
+    for j, time_series in enumerate(clusters[key]):
+        line = plt.plot(time_series, colours[i], label=key)
+        if j == 0:
+            lines.append(line)
     i += 1
-plt.ylabel(title)
+plt.legend()
 plt.savefig(output, format=format)
