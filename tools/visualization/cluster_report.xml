@@ -21,7 +21,6 @@ This tool generates a report of the Kmedoid algorithm
 
 - Sample report output::
 
-    Call: iteration None, distance ddtw, fast True, radius 20, seed None, tollerance 0.000100
     centroid.matrix
     5.2  5.0
     2.43 3.0

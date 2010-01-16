@@ -1,6 +1,6 @@
 <tool id="kmedoid_tool" name="K-Medoid">
   <description>Clustering tool for time series</description>
-  <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -t $tol -o $output -p $pu</command>
+  <command interpreter="python">kmedoid_tool.py -d $input -s tab -c $k -i $it -D $dist -f $fast -r $radius -S $seed -o $output -p $pu</command>
   <inputs>
     <param format="tabular" name="input" type="data" label="Source file"/>
     <param name="k" type="integer" value="2" label="Number of clusters" />
@@ -17,7 +17,6 @@
     </param>
     <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
     <param name="seed" type="text" value="None" label="Seed for random function" />
-    <param name="tol" type="float" value="0.0001" label="Tolerance of the algorithm" />
     <param name="pu" type="select" label="Compute using: ">
       <option value="CPU">CPU</option>
       <option value="GPU">GPU</option>

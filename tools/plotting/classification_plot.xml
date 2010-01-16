@@ -24,14 +24,13 @@
 
 -----
 
-This tool takes as input the tabular file produced by the Kmedoid algorithm and the
-time series files. It generates a plot image of the clusters (in different colors).
+This tool takes as input a dataset file and its lables file.
 
 **Example**
 
 - Sample plot output:
 
-.. image:: static/images/kmedoid_plot.png
+.. image:: static/images/plot_classes.png
 
 </help>
 </tool>

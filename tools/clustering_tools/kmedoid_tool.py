@@ -24,8 +24,6 @@ parser.add_option("-r", "--radius", type = "int",
                   dest = "radius", help = "Accuracy of FastDtw, default=20", default=20)
 parser.add_option("-S", "--Seed", type = "str",
                   dest = "seed", help = "Seed for function random, default = None", default=None)
-parser.add_option("-t", "--tolerance", type = "float",
-                  dest = "error", help = "tolerance of algorithm, default = 0.0001", default=0.0001)
 parser.add_option("-o", "--output", metavar = "CSV",
                   dest = "foutp", help = "name file output - required")
 parser.add_option("-p", "--processor", type = "str",
@@ -67,7 +65,6 @@ print "distance ",options.met
 print "fast", options.fast
 print "radius ",options.radius
 print "Seed ",options.seed
-print "tollerance ",options.error
 print "Computing on", options.pu
 
 x, mat, header, title = iodata.load_csv(options.finp, options.sep)
@@ -76,7 +73,6 @@ m = kmedoid.Medoid(options.nrip,
                    options.fast,
                    options.radius,
                    options.seed,
-                   options.error,
                    pu=options.pu)
 matt = mat.T
 centroidsid, mini = m.compute(options.k, matt)

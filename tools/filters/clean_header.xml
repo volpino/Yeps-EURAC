@@ -14,34 +14,22 @@
 
 -----
 
-This tool extracts the labels of the time series from a dataset
+This tool extracts only the time series from a tabular file with header.
 
 **Example**
 
-- Labels column must be an integer that indicates the index of the labels column.
-  First column is 0 and you can use negative numbers to indicate last columns (-1 = last column).
-
 - Input file must be tabular (separated by tabs) and well structured like::
 
-    id   a   b   c   d   labels
-    id1  1   9   2   0   label1
-    id2  5   2   4   2   label2
-    id3  2   3   5   1   label1
+    id   a   b   c   d
+    id1  1   9   2   0
+    id2  5   2   4   2
+    id3  2   3   5   1
 
-- Outputs:
+- Outputs::
 
-  - Data file (labels column = 5)::
-
-      id   a   b   c   d   labels
-      id1  1   9   2   0   label1
-      id2  5   2   4   2   label2
-      id3  2   3   5   1   label1
-
-  - label file::
-
-      label1
-      label2
-      label1
+    1   9   2   0
+    5   2   4   2
+    2   3   5   1
 
 </help>
 </tool>

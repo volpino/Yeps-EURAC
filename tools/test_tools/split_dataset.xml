@@ -18,32 +18,5 @@
 This tools splits dataset random in 2 datasets (1/3 and 2/3 of the input data)
 This operation is useful to check the accuracy of classification algorithms.
 
-**Example**
-
-- Labels column must be an integer that indicates the index of the labels column.
-  First column is 0 and you can use negative numbers to indicate last columns (-1 = last column).
-
-- Input file must be tabular (separated by tabs) and well structured like::
-
-    id   a   b   c   d   labels
-    id1  1   9   2   0   label1
-    id2  5   2   4   2   label2
-    id3  2   3   5   1   label1
-
-- Outputs:
-
-  - Data file (labels column = 5)::
-
-      id   a   b   c   d   labels
-      id1  1   9   2   0   label1
-      id2  5   2   4   2   label2
-      id3  2   3   5   1   label1
-
-  - label file::
-
-      label1
-      label2
-      label1
-
 </help>
 </tool>
