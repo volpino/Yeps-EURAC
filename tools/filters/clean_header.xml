@@ -1,4 +1,4 @@
-<tool id="extractLabels" name="Clean header">
+<tool id="cleanHeader" name="Clean header">
   <description>and extract time series from a tabular dataset</description>
   <command interpreter="python">clean_header.py $input $output</command>
   <inputs>
