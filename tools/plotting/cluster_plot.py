@@ -45,9 +45,9 @@ i = 0
 for key in clusters.keys():
     i = i % len(colours)
     for j, time_series in enumerate(clusters[key]):
-        line = plt.plot(time_series, colours[i], label=key)
+        line = plt.plot(time_series, colours[i])
         if j == 0:
-            lines.append(line)
+            lines.append((line,key))
     i += 1
-plt.legend(lines)
+plt.legend(lines, cluster.keys())
 plt.savefig(output, format=format)
