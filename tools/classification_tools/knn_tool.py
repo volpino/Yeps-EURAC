@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from optparse import OptionParser
-import knn
+from knn import knn_remake
 import csv
 
 # Command line parsin
@@ -54,7 +54,7 @@ labels = [row[0] for row in labels_reader]
 ts_reader = csv.reader(open(options.testset), delimiter='\t')
 ts = [row for row in ts_reader]
 
-nn = knn.kNN(ts,
+nn = knn.kS(ts,
              train,
              labels,
              False,
