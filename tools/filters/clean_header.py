@@ -13,7 +13,7 @@ except IndexError:
 
 x, mat, header, title = iodata.load_csv(input, '\t')
 
-w = csv.writer(open(out, 'w'), delimiter='\t')
+w = csv.writer(open(output, 'w'), delimiter='\t')
 for ts in mat:
     w.writerow(ts)
 
