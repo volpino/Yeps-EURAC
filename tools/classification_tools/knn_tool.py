@@ -57,7 +57,7 @@ ts = [row for row in ts_reader]
 nn = knn.kS(ts,
              train,
              labels,
-             False,
+             #False,
              options.dist,
              options.fast,
              options.radius,
