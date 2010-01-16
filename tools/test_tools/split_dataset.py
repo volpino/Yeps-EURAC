@@ -17,7 +17,7 @@ l1 = [row for row in reader]
 l2 = []
 
 for i in range(len(l1) / 3):
-    n = random.randint(len(l1) / 3)
+    n = random.randint(0, len(l1) / 3)
     l2.append(l1[n])
     del l1[n]
 
