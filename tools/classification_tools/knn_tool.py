@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from optparse import OptionParser
-from knn import knn_remake as knn
+import knn
 import csv
 
 # Command line parsin
@@ -12,8 +12,6 @@ parser.add_option("-l", "--labels", metavar = "CSV",
                   dest = "labels", help = "labels file - required")
 parser.add_option("-s", "--test-set", metavar = "CSV",
                   dest = "testset", help = "test set data - required")
-parser.add_option("-c", "--clusters",  type = "str", dest = "clusters",
-                  help = "file produced by a clustering tool - required")
 parser.add_option("-D", "--distance", type = "string", dest = "dist",
                   help = "distance: dtw,ddtw,euclidean,pearson,default=ddtw",
                   default="ddtw")
@@ -56,13 +54,14 @@ labels = [row[0] for row in labels_reader]
 ts_reader = csv.reader(open(options.testset), delimiter='\t')
 ts = [row for row in ts_reader]
 
-nn = knn.kS(ts,
-            train,
-            labels,
-            options.dist,
-            options.fast,
-            options.radius,
-            options.pu)
+nn = knn.kNN(ts,
+             train,
+             labels,
+             False,
+             options.dist,
+             options.fast,
+             options.radius,
+             options.pu)
 res = nn.compute(options.k)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')

@@ -1,10 +1,10 @@
 <tool id="knn_medie_tool" name="k-NN avg">
   <description>Classification tool for time series</description>
-  <command interpreter="python">knn_medie_tool.py -t $training -l $labels -s $test_set -D $dist -f $fast -r $radius -k $k -o $output -p $pu</command>
+  <command interpreter="python">knn_medie_tool.py -t $training -c $clusters -s $test_set -D $dist -f $fast -r $radius -k $k -o $output -p $pu</command>
   <inputs>
     <param format="tabular" name="test_set" type="data" label="Test set file"/>
     <param format="tabular" name="training" type="data" label="Training file"/>
-    <param format="tabular" name="labels" type="data" label="Clusters file"/>
+    <param format="tabular" name="clusters" type="data" label="Clusters file"/>
     <param name="k" type="integer" value="1" label="K" />
     <param name="dist" type="select" label="Distance">
       <option value="ddtw">Derivative DTW</option>

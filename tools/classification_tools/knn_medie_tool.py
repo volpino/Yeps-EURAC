@@ -8,8 +8,6 @@ import csv
 parser = OptionParser()
 parser.add_option("-t", "--training", metavar = "CSV",
                   dest = "training", help = "training data - required")
-parser.add_option("-l", "--labels", metavar = "CSV",
-                  dest = "labels", help = "labels file - required")
 parser.add_option("-s", "--test-set", metavar = "CSV",
                   dest = "testset", help = "test set data - required")
 parser.add_option("-c", "--clusters",  type = "str", dest = "clusters",
@@ -33,8 +31,8 @@ options, args = parser.parse_args()
 
 if not options.training:
 	parser.error("option -t (training data) is required")
-if not options.labels:
-	parser.error("option -l (labels file) is required")
+if not options.clusters:
+	parser.error("option -c (clusters file) is required")
 if not options.testset:
 	parser.error("option -s (test set data) is required")
 if not options.foutp:
@@ -50,15 +48,15 @@ print "Computing on", options.pu
 train_reader = csv.reader(open(options.training), delimiter='\t')
 train = [row for row in train_reader]
 
-labels_reader = open(options.labels)
-labels = [row for row in labels_reader]
+cluster_reader = open(options.labels)
+cluster = [row for row in labels_reader]
 
 ts_reader = csv.reader(open(options.testset), delimiter='\t')
 ts = [row for row in ts_reader]
 
 nn = knn.kNN(ts,
              train,
-             labels,
+             cluster[1],
              options.dist,
              options.fast,
              options.radius,
