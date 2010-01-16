@@ -49,5 +49,5 @@ for key in clusters.keys():
         if j == 0:
             lines.append((line,key))
     i += 1
-plt.legend(lines, cluster.keys())
+plt.legend(lines, clusters.keys())
 plt.savefig(output, format=format)
