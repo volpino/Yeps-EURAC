@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from optparse import OptionParser
-from knn import knn_remake
+from knn import knn_remake as knn
 import csv
 
 # Command line parsin
