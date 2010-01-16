@@ -18,6 +18,9 @@
     <tool file="visualization/cluster_report.xml" />
     <tool file="visualization/knn_accuracy.xml" />
   </section>
+  <section name="Test Tools" id="tests">
+    <tool file="test_tools/split_dataset.xml" />
+  </section>
   <section name="Text Manipulation" id="textutil">
     <tool file="filters/fixedValueColumn.xml" />
     <tool file="stats/column_maker.xml" />
