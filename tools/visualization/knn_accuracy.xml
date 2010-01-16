@@ -1,5 +1,5 @@
-<tool id="knn_accuracy" name="kNN">
-  <description>accuracy report</description>
+<tool id="knn_accuracy" name="Classification accuracy">
+  <description>report</description>
   <command interpreter="python">knn_accuracy.py $training_set $train_labels $test_set $test_labels $output</command>
   <inputs>
     <param format="tabular" name="training_set" type="data" label="Training set"/>
