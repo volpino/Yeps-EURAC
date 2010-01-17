@@ -22,6 +22,11 @@ test = [row for row in test_reader]
 test_labels_reader = csv.reader(open(test_labels), delimiter='\t')
 test_labels = [row for row in test_labels_reader]
 
+if not len(test_labels) == len(test) or \
+   not len(train_labels) == len(train) or \
+   len(train) < len(test):
+    raise(ValueError, "Invalid input data!")
+
 right = 0
 wrong = 0
 
