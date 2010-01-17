@@ -74,4 +74,4 @@ res = nn.compute(options.k)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
 for line in res:
-    w.writerow(line)
+    w.writerow([line])
