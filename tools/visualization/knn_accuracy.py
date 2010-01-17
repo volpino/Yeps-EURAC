@@ -36,7 +36,7 @@ for i, elem in enumerate(test):
         else:
             wrong += 1
 if wrong > 0:
-    acc = round(float(right) / len(train) * 100)
+    acc = round(float(right) / (right + wrong))
 else:
     acc = 100
 report = """
