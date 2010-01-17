@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from optparse import OptionParser
-from knn import knn_remake as knn
+from knn import knn
 import csv
 
 # Command line parsin
@@ -22,6 +22,8 @@ parser.add_option("-r", "--radius", type = "int",
                   default=20)
 parser.add_option("-k", "--k", type = "int",
                   dest = "k", help = "k, default = 1", default=1)
+parser.add_option("-w", "--weight", action = "store_true", default = True,
+                  dest = "weight", help = "Use weighted mode, default = True")
 parser.add_option("-o", "--output", metavar = "CSV",
                   dest = "foutp", help = "file output name - required")
 parser.add_option("-p", "--processor", type = "str",
@@ -40,6 +42,7 @@ if not options.foutp:
 
 print "Parameters:"
 print "k ",options.k
+print "weight",options.weight
 print "distance ", options.dist
 print "fast", options.fast
 print "radius ",options.radius
@@ -54,10 +57,10 @@ labels = [row[0] for row in labels_reader]
 ts_reader = csv.reader(open(options.testset), delimiter='\t')
 ts = [row for row in ts_reader]
 
-nn = knn.kS(ts,
+nn = knn.kNN(ts,
              train,
              labels,
-             #False,
+             options.weight,
              options.dist,
              options.fast,
              options.radius,
