@@ -78,8 +78,8 @@ m = kmeans.Means(options.nrip,
                  options.seed,
                  options.error,
                  pu=options.pu)
-matt = mat.T
-centroidsid, mini = m.compute(options.k, matt)
+
+centroidsid, mini = m.compute(options.k, mat.T)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
 w.writerow(centroidsid)
