@@ -40,6 +40,11 @@ if not options.testset:
 if not options.foutp:
 	parser.error("option -o (output) is required")
 
+if options.fast == 'True':
+    options.fast = True
+else:
+    options.fast = False
+
 print "Parameters:"
 print "k ",options.k
 print "weight",options.weight

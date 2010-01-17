@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from optparse import OptionParser
-from knn import knn_remake as knn
+from knn import knn_medie as knn
 import csv
 
 # Command line parsin
@@ -37,6 +37,11 @@ if not options.testset:
 	parser.error("option -s (test set data) is required")
 if not options.foutp:
 	parser.error("option -o (output) is required")
+
+if options.fast == 'True':
+    options.fast = True
+else:
+    options.fast = False
 
 print "Parameters:"
 print "k ",options.k
