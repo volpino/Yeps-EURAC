@@ -51,8 +51,6 @@ elif options.nrip:
 
 if options.fast == 'True':
     options.fast = True
-else:
-    options.fast = False
 
 if options.seed == 'None':
     options.seed = None
