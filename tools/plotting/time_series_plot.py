@@ -28,7 +28,7 @@ for time_series in mat:
     plt.plot(time_series)
 
 if len(mat[0]) < 5:
-    plt.xticks(range(len(mat[0])), range(len(mat[0])))
+    plt.xticks(range(len(mat[0]) + 1), range(len(mat[0]) + 1))
 
 plt.ylabel("Intensity [a.u.]")
 plt.xlabel("Time Points")

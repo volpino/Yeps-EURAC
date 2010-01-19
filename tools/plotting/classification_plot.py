@@ -39,7 +39,7 @@ for n, t in enumerate(ts):
     l.append(plt.plot(t, col[labels[n]][1], label=labels[n]))
 
 if len(ts[0][1]) < 5:
-    plt.xticks(range(len(ts[0][1])), range(len(ts[0][1])))
+    plt.xticks(range(len(ts[0][1]) + 1), range(len(ts[0][1]) + 1))
 
 plt.ylabel("Intensity [a.u.]")
 plt.xlabel("Time Points")
