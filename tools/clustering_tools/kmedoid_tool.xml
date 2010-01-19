@@ -3,12 +3,12 @@
   <command interpreter="python">
       kmedoid_tool.py -d $input -s tab -c $k -i $it -S $seed -o $output
       #if $compute.pu == "CPU"
-        -p CPU -d $compute.distance.dist
+        -p CPU -D $compute.distance.dist
         #if $compute.distance.fast_dtw.fast == "True"
           -f True -r $compute.distance.fast_dtw.radius
         #end if
       #elif $compute.pu == "GPU"
-          -p GPU -dist $compute.dist
+          -p GPU -D $compute.dist
       #end if
   </command>
   <inputs>
@@ -66,12 +66,6 @@
 
     <param name="seed" type="text" value="None" label="Seed for random function" />
 
-  </inputs>
-  <configfiles>
-    <configfile name="options">
-
-    </configfile>
-  </configfiles>
   <outputs>
     <data format="tabular" name="output" />
   </outputs>

@@ -1,4 +1,4 @@
-eggs/
-database/
+eggs/*
+database/*
 *.pyc
 *~
