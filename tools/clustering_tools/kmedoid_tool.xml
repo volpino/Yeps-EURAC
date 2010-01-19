@@ -65,7 +65,7 @@
     </conditional>
 
     <param name="seed" type="text" value="None" label="Seed for random function" />
-
+  </inputs>
   <outputs>
     <data format="tabular" name="output" />
   </outputs>
