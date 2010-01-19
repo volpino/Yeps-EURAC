@@ -27,6 +27,7 @@ x, mat, header, title = iodata.load_csv(input, sep)
 for time_series in mat:
     plt.plot(time_series)
 
-plt.ylabel(title)
-#plt.xticks(xrange(len(header)), header, rotation=90)
+plt.ylabel("Intensity [a.u.]")
+plt.xlabel("Time Points")
+plt.xticks([], [])
 plt.savefig(output, format=format)
