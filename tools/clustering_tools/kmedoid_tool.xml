@@ -4,7 +4,7 @@
       kmedoid_tool.py -d $input -s tab -c $k -i $it -S $seed -o $output
       #if $compute.pu == "CPU"
         -p CPU -D $compute.distance.dist
-        #if $compute.distance['fast_dtw']
+        #if $compute.distance.dist == "ddtw" or $compute.distance.dist == "dtw"
           #if $compute.distance.fast_dtw.fast == "True"
             -f True -r $compute.distance.fast_dtw.radius
           #end if
