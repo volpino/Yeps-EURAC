@@ -38,5 +38,13 @@ l=[]
 for n, t in enumerate(ts):
     l.append(plt.plot(t, col[labels[n]][1], label=labels[n]))
 
+if len(ts[0][1]) < 5:
+    plt.xticks(range(len(ts[0][1])), range(len(ts[0][1])))
+
+plt.ylabel("Intensity [a.u.]")
+plt.xlabel("Time Points")
+plt.savefig(output, format=format)
+
+
 plt.legend([l[labels.index(k)] for k in col.keys()], col.keys())
 plt.savefig(output, format=format)
