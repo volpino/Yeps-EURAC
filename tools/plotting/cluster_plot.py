@@ -50,4 +50,12 @@ for key in clusters.keys():
             lines.append(line)
     i += 1
 plt.legend(lines, ["Cluster %d" % i for i, k in enumerate(clusters.keys())])
+
+l = len(clusters.values()[0][0])
+if l < 5:
+    plt.xticks(range(l + 1), range(l + 1))
+
+plt.ylabel("Intensity [a.u.]")
+plt.xlabel("Time Points")
+
 plt.savefig(output, format=format)
