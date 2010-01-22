@@ -9,7 +9,7 @@
   </section>
   <section name="Classification Tools" id="ClassificationTools" >
     <tool file="classification_tools/knn_tool.xml" />
-    <tool file="classification_tools/knn_medie_tool.xml" />
+    <!--<tool file="classification_tools/knn_medie_tool.xml" />-->
   </section>
   <section name="Graph/Display Data" id="plots">
     <tool file="plotting/time_series_plot.xml" />

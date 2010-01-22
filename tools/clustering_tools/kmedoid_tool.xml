@@ -6,7 +6,7 @@
         -p CPU -D $compute.distance.dist
         #if $compute.distance.dist == "ddtw" or $compute.distance.dist == "dtw"
           #if $compute.distance.fast_dtw.fast == "True"
-            -f True -r $compute.distance.fast_dtw.radius
+            -f -r $compute.distance.fast_dtw.radius
           #end if
         #end if
       #elif $compute.pu == "GPU"

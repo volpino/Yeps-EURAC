@@ -49,9 +49,6 @@ elif options.nrip:
     except ValueError:
         parser.error("option -i: invalid value")
 
-if options.fast == 'True':
-    options.fast = True
-
 if options.seed == 'None':
     options.seed = None
 elif options.seed:
