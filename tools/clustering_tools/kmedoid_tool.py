@@ -3,7 +3,6 @@
 from numpy import *
 from optparse import OptionParser
 import kmedoid
-import iodata
 import csv
 
 # Command line parsin
@@ -67,15 +66,16 @@ print "radius ",options.radius
 print "Seed ",options.seed
 print "Computing on", options.pu
 
-x, mat, header, title = iodata.load_csv(options.finp, options.sep)
 m = kmedoid.Medoid(options.nrip,
                    options.met,
                    options.fast,
                    options.radius,
                    options.seed,
                    pu=options.pu)
-matt = mat.T
-centroidsid, mini = m.compute(options.k, matt)
+
+r = csv.reader(open(options.finp), delimiter=options.sep)
+mat = array([row for row in r], dtype=float)
+centroidsid, mini = m.compute(options.k, mat.T)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
 w.writerow(centroidsid)
