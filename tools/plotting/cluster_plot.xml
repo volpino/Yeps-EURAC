@@ -1,9 +1,13 @@
 <tool id="cluster_plot" name="Plot Clusters">
   <description>tool for plotting clusters</description>
-  <command interpreter="python">cluster_plot.py $format $input1 $input2 $output</command>
+  <command interpreter="python">cluster_plot.py $format $input1 $input2 $output $clust</command>
   <inputs>
     <param format="tabular" name="input1" type="data" label="Clustering file"/>
     <param format="tabular" name="input2" type="data" label="Time Series file"/>
+    <param name="clust" type="select" display="checkboxes" multiple="True" label="Mark centroids/medoid">
+        <option value="y">Yes</option>
+    </param>
+
     <param name="format" type="select" label="Output format">
       <option value="png">Image</option>
       <option value="pdf">PDF</option>
