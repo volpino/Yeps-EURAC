@@ -25,8 +25,8 @@ l = []
 for row in r:
     l.append([int(i) for i in row])
 
-centroidsid = array(l[0])
-mini = array(l[1])
+centroidsid = array(l[:-1])
+mini = array(l[-1])
 
 r = csv.reader(open(input2), delimiter='\t')
 mat = array([row for row in r], dtype=float)

@@ -83,5 +83,6 @@ m = kmeans.Means(options.nrip,
 centroidsid, mini = m.compute(options.k, mat.T)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
-w.writerow("")
+for row in centroidsid:
+    w.writerow(row)
 w.writerow(mini)
