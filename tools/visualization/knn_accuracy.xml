@@ -1,0 +1,24 @@
+<tool id="knn_accuracy" name="Classification accuracy">
+  <description>report</description>
+  <command interpreter="python">knn_accuracy.py $training_set $train_labels $test_set $test_labels $output</command>
+  <inputs>
+    <param format="tabular" name="training_set" type="data" label="Dataset"/>
+    <param format="tabular" name="train_labels" type="data" label="Dataset labels"/>
+    <param format="tabular" name="test_set" type="data" label="Test set"/>
+    <param format="tabular" name="test_labels" type="data" label="Test set labels"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool generates a report that calculates the accuracy of the kNN.
+
+</help>
+</tool>
+

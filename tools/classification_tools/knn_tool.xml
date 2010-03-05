@@ -1,0 +1,115 @@
+<tool id="knn_tool" name="k-NN">
+  <description>Classification tool for time series</description>
+    <command interpreter="python">
+      knn_tool.py -t $training -l $labels -s $test_set -k $k -w $weight -o $output
+      #if $compute.pu == "CPU"
+        -p CPU -D $compute.distance.dist
+        #if $compute.distance.dist == "ddtw" or $compute.distance.dist == "dtw"
+          #if $compute.distance.fast_dtw.fast == "True"
+            -f -r $compute.distance.fast_dtw.radius
+          #end if
+        #end if
+      #elif $compute.pu == "GPU"
+          -p GPU -D $compute.dist
+      #end if
+    </command>
+    <inputs>
+      <param format="tabular" name="test_set" type="data" label="Test set file"/>
+      <param format="tabular" name="training" type="data" label="Training file"/>
+      <param format="tabular" name="labels" type="data" label="Labels file"/>
+      <param name="k" type="integer" value="1" label="K" />
+      <param name="weight" type="select" label="Weighted mode">
+        <option value="True">True</option>
+        <option value="False">False</option>
+      </param>
+    <conditional name="compute">
+      <param name="pu" type="select" label="Compute using: ">
+        <option value="CPU">CPU</option>
+        <option value="GPU">GPU</option>
+      </param>
+      <when value="CPU">
+        <conditional name="distance">
+          <param name="dist" type="select" label="Distance">
+            <option value="ddtw">Derivative DTW</option>
+            <option value="dtw">DTW</option>
+            <option value="euclidean">Euclidean</option>
+            <option value="pearson">Pearson</option>
+          </param>
+          <when value="ddtw">
+            <conditional name="fast_dtw">
+              <param name="fast" type="select" label="Fast DTW">
+                <option value="False">False</option>
+                <option value="True">True</option>
+              </param>
+              <when value="True">
+                <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
+              </when>
+              <when value="False"></when>
+            </conditional>
+          </when>
+          <when value="dtw">
+            <conditional name="fast_dtw">
+              <param name="fast" type="select" label="Fast DTW">
+                <option value="False">False</option>
+                <option value="True">True</option>
+              </param>
+              <when value="True">
+                <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
+              </when>
+              <when value="False"></when>
+            </conditional>
+          </when>
+          <when value="euclidean"></when>
+          <when value="pearson"></when>
+        </conditional>
+      </when>
+      <when value="GPU">
+        <param name="dist" type="select" label="Distance">
+          <option value="ddtw">Derivative DTW</option>
+          <option value="dtw">DTW</option>
+        </param>
+      </when>
+    </conditional>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+  <help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool computes a k-NN algorithm over a certain number of time series
+
+**Example**
+
+- Input files must be tabular (separated by tabs) and well structured
+
+  - Training file (each line is a time series)::
+
+      1   2   3   4   5
+      1   2   3   4   5
+      5   4   3   2   1
+      5   4   4   2   1
+      2   2   3   4   5
+
+  - Labels file (each label refers to a time series of the training file)::
+
+      group1
+      group1
+      group3
+      group3
+      group2
+
+  - Test set file (each line is a time series)::
+
+      1   2   3   4   5
+      4   5   6   2   5
+
+- Output: a tabular file containing the labels of any time series of the test set
+
+</help>
+</tool>
+

@@ -1,0 +1,60 @@
+<tool id="knn_medie_tool" name="k-NN avg">
+  <description>Classification tool for time series</description>
+  <command interpreter="python">knn_medie_tool.py -t $training -c $clusters -s $test_set -D $dist -f $fast -r $radius -k $k -o $output -p $pu</command>
+  <inputs>
+    <param format="tabular" name="test_set" type="data" label="Test set file"/>
+    <param format="tabular" name="training" type="data" label="Training file"/>
+    <param format="tabular" name="clusters" type="data" label="Clusters file"/>
+    <param name="k" type="integer" value="1" label="K" />
+    <param name="dist" type="select" label="Distance">
+      <option value="ddtw">Derivative DTW</option>
+      <option value="dtw">DTW</option>
+      <option value="euclidean">Euclidean</option>
+      <option value="pearson">Pearson</option>
+    </param>
+    <param name="fast" type="select" label="Fast DTW">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </param>
+    <param name="radius" type="text" value="20" label="Radius - Accuracy of FastDTW" />
+    <param name="pu" type="select" label="Compute using: ">
+      <option value="CPU">CPU</option>
+      <option value="GPU">GPU</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+  <help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool computes a k-NN algorithm over a certain number of time series
+
+**Example**
+
+- Input files must be tabular (separated by tabs) and well structured
+
+  - Training file (each line is a time series)::
+
+      1   2   3   4   5
+      1   2   3   4   5
+      5   4   3   2   1
+      5   4   4   2   1
+      2   2   3   4   5
+
+  - Clusters file (file produced by K-Means or K-Medoid)
+
+  - Test set file (each line is a time series)::
+
+      1   2   3   4   5
+      4   5   6   2   5
+
+- Output: a tabular file containing the labels of any time series of the test set
+
+</help>
+</tool>
+

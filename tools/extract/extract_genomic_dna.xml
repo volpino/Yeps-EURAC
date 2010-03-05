@@ -1,0 +1,100 @@
+<tool id="Extract genomic DNA 1" name="Extract Genomic DNA" version="2.2.1">
+  <description>using coordinates from assembled/unassembled genomes</description>
+  <command interpreter="python">extract_genomic_dna.py $input $out_file1 -1 ${input.metadata.chromCol},${input.metadata.startCol},${input.metadata.endCol},${input.metadata.strandCol} -d $dbkey -o $out_format -g ${GALAXY_DATA_INDEX_DIR}</command>
+  <inputs>
+    <param format="interval" name="input" type="data" label="Fetch sequences corresponding to Query">
+      <validator type="unspecified_build" />
+      <validator type="dataset_metadata_in_file" filename="alignseq.loc" metadata_name="dbkey" metadata_column="1" message="Sequences are not currently available for the specified build." line_startswith="seq" />
+    </param>
+	<param name="out_format" type="select" label="Output data type">
+	<option value="fasta">FASTA</option>
+	<option value="interval">Interval</option>
+	</param>
+  </inputs>
+  <outputs>
+    <data format="fasta" name="out_file1" metadata_source="input">
+      <change_format>
+        <when input="out_format" value="interval" format="interval" />
+      </change_format>
+    </data>
+  </outputs>
+  <tests>
+    <test>
+      <param name="input" value="1.bed" dbkey="hg17" ftype="bed" />
+      <param name="out_format" value="fasta"/>   
+      <output name="out_file1" file="extract_genomic_dna_out1.fasta" />
+    </test>
+    <test>
+      <param name="input" value="droPer1.bed" dbkey="droPer1" ftype="bed" />
+      <param name="out_format" value="fasta"/>
+      <output name="out_file1" file="extract_genomic_dna_out2.fasta" />
+    </test>
+    <test>
+      <param name="input" value="1.bed" dbkey="hg17" ftype="bed" />
+      <param name="out_format" value="interval"/>
+      <output name="out_file1" file="extract_genomic_dna_out3.interval" />
+    </test>
+  </tests>
+  <help>
+
+.. class:: warningmark
+
+This tool requires tabular formatted data.  If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*.
+
+.. class:: warningmark
+
+Make sure that the genome build is specified for the dataset from which you are extracting sequences (click the pencil icon in the history item if it is not specified). 
+
+.. class:: warningmark
+
+All of the following will cause a line from the input dataset to be skipped and a warning generated.  The number of warnings and skipped lines is documented in the resulting history item.
+ - Any lines that do not contain at least 3 columns, a chromosome and numerical start and end coordinates.
+ - Sequences that fall outside of the range of a line's start and end coordinates. 
+ - Chromosome, start or end coordinates that are invalid for the specified build.
+ - Any lines whose data columns are not separated by a **TAB** character ( other white-space characters are invalid ).
+
+.. class:: infomark
+
+ **Extract genomic DNA using coordinates from ASSEMBLED genomes and UNassembled genomes** previously were achieved by two separate tools. 
+
+-----
+
+**What it does**
+
+This tool uses coordinate, strand, and build information to fetch genomic DNAs in FASTA or interval format.
+
+If strand is not defined, the default value is "+".
+
+-----
+
+**Example**
+
+If the input dataset is::
+
+    chr7  127475281  127475310  NM_000230  0  +
+    chr7  127485994  127486166  NM_000230  0  +
+    chr7  127486011  127486166  D49487     0  +
+
+Extracting sequences with **FASTA** output data type returns::
+
+    &gt;hg17_chr7_127475281_127475310_+
+    GTAGGAATCGCAGCGCCAGCGGTTGCAAG
+    &gt;hg17_chr7_127485994_127486166_+
+    GCCCAAGAAGCCCATCCTGGGAAGGAAAATGCATTGGGGAACCCTGTGCG
+    GATTCTTGTGGCTTTGGCCCTATCTTTTCTATGTCCAAGCTGTGCCCATC
+    CAAAAAGTCCAAGATGACACCAAAACCCTCATCAAGACAATTGTCACCAG
+    GATCAATGACATTTCACACACG
+    &gt;hg17_chr7_127486011_127486166_+
+    TGGGAAGGAAAATGCATTGGGGAACCCTGTGCGGATTCTTGTGGCTTTGG
+    CCCTATCTTTTCTATGTCCAAGCTGTGCCCATCCAAAAAGTCCAAGATGA
+    CACCAAAACCCTCATCAAGACAATTGTCACCAGGATCAATGACATTTCAC
+    ACACG
+
+Extrracting sequences with **Interval** output data type returns::
+
+    chr7    127475281       127475310       NM_000230       0       +       GTAGGAATCGCAGCGCCAGCGGTTGCAAG
+    chr7    127485994       127486166       NM_000230       0       +       GCCCAAGAAGCCCATCCTGGGAAGGAAAATGCATTGGGGAACCCTGTGCGGATTCTTGTGGCTTTGGCCCTATCTTTTCTATGTCCAAGCTGTGCCCATCCAAAAAGTCCAAGATGACACCAAAACCCTCATCAAGACAATTGTCACCAGGATCAATGACATTTCACACACG
+    chr7    127486011       127486166       D49487  0       +       TGGGAAGGAAAATGCATTGGGGAACCCTGTGCGGATTCTTGTGGCTTTGGCCCTATCTTTTCTATGTCCAAGCTGTGCCCATCCAAAAAGTCCAAGATGACACCAAAACCCTCATCAAGACAATTGTCACCAGGATCAATGACATTTCACACACG
+
+</help>
+</tool>

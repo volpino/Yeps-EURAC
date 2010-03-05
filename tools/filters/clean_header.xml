@@ -1,0 +1,35 @@
+<tool id="cleanHeader" name="Cut header">
+  <description>and extract time series from a tabular dataset</description>
+  <command interpreter="python">clean_header.py $input $output</command>
+  <inputs>
+    <param format="tabular" name="input" type="data" label="Source file"/>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+<help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool extracts only the time series from a tabular file with header.
+
+**Example**
+
+- Input file must be tabular (separated by tabs) and well structured like::
+
+    id   a   b   c   d
+    id1  1   9   2   0
+    id2  5   2   4   2
+    id3  2   3   5   1
+
+- Outputs::
+
+    1   9   2   0
+    5   2   4   2
+    2   3   5   1
+
+</help>
+</tool>

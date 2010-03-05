@@ -1,0 +1,50 @@
+<tool id="sam_to_bam" name="SAM-to-BAM" version="1.0.0">
+  <description>converts SAM format to BAM format</description>
+  <command interpreter="python">
+sam_to_bam.py --input1=$source.input1 --dbkey=${input1.metadata.dbkey} 
+#if $source.index_source == "history":
+--ref_file=$source.ref_file
+#else
+--ref_file="None"
+#end if
+--output1=$output1 --index_dir=${GALAXY_DATA_INDEX_DIR}
+  </command>
+  <inputs>
+    <conditional name="source">
+      <param name="index_source" type="select" label="Choose the source for the reference list">
+        <option value="cached">Locally cached</option>
+        <option value="history">History</option>
+      </param>
+      <when value="cached">
+        <param name="input1" type="data" format="sam" label="SAM File to Convert">
+           <validator type="unspecified_build" />
+           <validator type="dataset_metadata_in_file" filename="sam_fa_indices.loc" metadata_name="dbkey" metadata_column="1" message="Sequences are not currently available for the specified build." line_startswith="index" />
+        </param>
+      </when>
+      <when value="history">
+        <param name="input1" type="data" format="sam" label="Convert SAM file" />
+        <param name="ref_file" type="data" format="fasta" label="Using reference file" />
+      </when>
+    </conditional>
+  </inputs>
+  <outputs>
+    <data name="output1" format="bam"/>
+  </outputs>
+  <tests>
+    <test>
+      <param name="index_source" value="history" /> 
+      <param name="input1" value="3.sam" ftype="sam" />
+      <param name="ref_file" value="chr_m.fasta" ftype="fasta" />
+      <output name="output1" file="sam_to_bam_out1.bam" />
+    </test>
+  </tests>
+  <help>
+
+**What it does**
+
+This tool uses the SAMTools_ toolkit to produce an indexed BAM file based on a sorted input SAM file.
+
+.. _SAMTools: http://samtools.sourceforge.net/samtools.shtml
+
+  </help>
+</tool>

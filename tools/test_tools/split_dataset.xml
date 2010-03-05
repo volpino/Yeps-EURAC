@@ -1,0 +1,22 @@
+<tool id="splitDataset" name="Split">
+    <description>dataset random in 1/3 and 2/3</description>
+  <command interpreter="python">split_dataset.py $input $train $test</command>
+  <inputs>
+    <param format="tabular" name="input" type="data" label="Source file"/>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="train" />
+    <data format="tabular" name="test" />
+  </outputs>
+<help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tools splits dataset random in 2 datasets (1/3 and 2/3 of the input data)
+This operation is useful to check the accuracy of classification algorithms.
+
+</help>
+</tool>

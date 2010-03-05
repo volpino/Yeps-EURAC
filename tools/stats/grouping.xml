@@ -1,0 +1,108 @@
+<tool id="Grouping1" name="Group" version="1.9.0">
+  <description>data by a column and perform aggregate operation on other columns.</description>
+  <command interpreter="python">
+    grouping.py 
+      $out_file1
+      $input1
+      $groupcol
+      $ignorecase
+      #for $op in $operations
+       '${op.optype}
+        ${op.opcol}
+        ${op.opround}'
+      #end for
+  </command>
+  <inputs>
+    <param format="tabular" name="input1" type="data" label="Select data" help="Query missing? See TIP below."/>
+    <param name="groupcol" label="Group by column" type="data_column" data_ref="input1" />
+    <param name="ignorecase" type="boolean" truevalue="1" falsevalue="0">
+      <label>Ignore case while grouping?</label>
+    </param>
+    <repeat name="operations" title="Operation">
+      <param name="optype" type="select" label="Type">
+        <option value="mean">Mean</option>
+        <option value="median">Median</option>
+        <option value="max">Maximum</option>
+        <option value="min">Minimum</option>
+        <option value="sum">Sum</option>
+        <option value="length">Count</option>
+        <option value="unique">Count Distinct</option>
+        <option value="c">Concatenate</option>
+        <option value="cuniq">Concatenate Distinct</option>
+        <option value="random">Randomly pick</option>
+      </param>
+      <param name="opcol" label="On column" type="data_column" data_ref="input1" />
+      <param name="opround" type="select" label="Round result to nearest integer?">
+         <option value="no">NO</option>
+         <option value="yes">YES</option>
+       </param>
+    </repeat>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="out_file1" />
+  </outputs>
+  <requirements>
+    <requirement type="python-module">rpy</requirement>
+  </requirements>
+  <tests>
+    <!-- Test valid data -->
+    <test>
+      <param name="input1" value="1.bed"/>
+      <param name="groupcol" value="1"/>
+      <param name="ignorecase" value="true"/>
+      <param name="optype" value="mean"/>
+      <param name="opcol" value="2"/>
+      <param name="opround" value="no"/>
+      <output name="out_file1" file="groupby_out1.dat"/>
+    </test>
+    
+    <!-- Test data with an invalid value in a column -->
+    <test>
+      <param name="input1" value="1.tabular"/>
+      <param name="groupcol" value="1"/>
+      <param name="ignorecase" value="true"/>
+      <param name="optype" value="mean"/>
+      <param name="opcol" value="2"/>
+      <param name="opround" value="no"/>
+      <output name="out_file1" file="groupby_out2.dat"/>
+    </test>
+  </tests>
+  <help>
+
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+**Syntax**
+
+This tool allows you to group the input dataset by a particular column and perform aggregate functions like Mean, Sum, Max, Min and Concatenate on other columns. 
+
+- All invalid, blank and comment lines are skipped when performing the aggregate functions.  The number of skipped lines is displayed in the resulting history item.
+
+-----
+
+**Example**
+
+- For the following input::
+
+   chr22  1000  1003  TTT
+   chr22  2000  2003  aaa
+   chr10  2200  2203  TTT
+   chr10  1200  1203  ttt
+   chr22  1600  1603  AAA
+
+- **Grouping on column 4** while ignoring case, and performing operation **Count on column 1** will return::
+
+   AAA    2
+   TTT    3
+   
+- **Grouping on column 4** while not ignoring case, and performing operation **Count on column 1** will return::
+
+   aaa    1
+   AAA    1
+   ttt    1
+   TTT    2
+  </help>
+</tool>

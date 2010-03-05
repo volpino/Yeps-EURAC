@@ -1,0 +1,37 @@
+<tool id="classification_plot" name="Plot Classes">
+  <description>tool for plotting classes</description>
+  <command interpreter="python">classification_plot.py $format $input1 $input2 $output</command>
+  <inputs>
+    <param format="tabular" name="input1" type="data" label="Labels file"/>
+    <param format="tabular" name="input2" type="data" label="Test set file"/>
+    <param name="format" type="select" label="Output format">
+      <option value="png">Image</option>
+      <option value="pdf">PDF</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="png" name="output">
+      <change_format>
+        <when input="format" value="pdf" format="pdf" />
+      </change_format>
+    </data>
+  </outputs>
+
+  <help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool takes as input a dataset file and its lables file.
+
+**Example**
+
+- Sample plot output:
+
+.. image:: static/images/plot_classes.png
+
+</help>
+</tool>
+

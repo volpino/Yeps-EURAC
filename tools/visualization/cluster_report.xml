@@ -1,0 +1,40 @@
+<tool id="cluster_report" name="Cluster Report">
+  <description>Get report of clustering</description>
+  <command interpreter="python">cluster_report.py $input1 $input2 $output</command>
+  <inputs>
+    <param format="tabular" name="input1" type="data" label="Kmedoid file"/>
+    <param format="tabular" name="input2" type="data" label="Time Series file"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool generates a report of the Kmedoid algorithm
+
+**Example**
+
+- Sample report output::
+
+    centroid.matrix
+    5.2  5.0
+    2.43 3.0
+    1.0  3.21
+    4.0  8.0
+
+    centroid.idx
+    3   1
+
+    groups
+    1   1
+    2   1
+    3   3
+
+</help>
+</tool>
+
