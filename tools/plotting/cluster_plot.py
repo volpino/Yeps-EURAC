@@ -8,9 +8,9 @@ try:
     input1 = argv[2]
     input2 = argv[3]
     output = argv[4]
-    clust  = argv[5]
+    mark   = argv[5]
 except IndexError:
-    print "Usage: cluster_plot.py <format> <input1> <input2> <output> <mark_clusters>"
+    print "Usage: cluster_plot.py <format> <input1> <input2> <output> <centroid>"
     exit(1)
 
 import matplotlib
@@ -59,7 +59,7 @@ if l < 5:
 plt.ylabel("Intensity [a.u.]")
 plt.xlabel("Time Points")
 
-if mark_clusters == "y":
+if mark == "y":
     for elem in centroidsid:
         plt.plot(time_series, mat[elem])
 
