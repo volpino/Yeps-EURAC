@@ -4,7 +4,7 @@
   <inputs>
     <param format="tabular" name="input1" type="data" label="Clustering file"/>
     <param format="tabular" name="input2" type="data" label="Time Series file"/>
-    <param name="clust" type="select" display="checkboxes" multiple="True" label="Mark centroids/medoid">
+    <param name="clust" type="select" display="checkboxes" multiple="True" label="Mark trends">
         <option value="y">Yes</option>
     </param>
 

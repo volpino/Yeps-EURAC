@@ -61,6 +61,6 @@ plt.xlabel("Time Points")
 
 if mark == "y":
     for elem in centroidsid:
-        plt.plot(mat[elem], linewidth=2, color='black')
+        plt.plot(mat[elem], linewidth=1.5, color='black')
 
 plt.savefig(output, format=format)
