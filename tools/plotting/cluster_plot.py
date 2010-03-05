@@ -1,6 +1,5 @@
 from numpy import *
 import csv
-import iodata
 
 from sys import argv
 
@@ -28,7 +27,8 @@ for row in r:
 centroidsid = array(l[0])
 mini = array(l[1])
 
-x, mat, header, title = iodata.load_csv(input2, '\t')
+r = csv.reader(open(options.finp), delimiter=options.sep)
+mat = array([row for row in r], dtype=float)
 
 clusters = {}
 i = 0

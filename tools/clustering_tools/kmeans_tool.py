@@ -3,7 +3,6 @@
 from numpy import *
 from optparse import OptionParser
 import kmeans
-import iodata
 import csv
 
 # Command line parsin
@@ -70,7 +69,9 @@ print "Seed ",options.seed
 print "tollerance ",options.error
 print "Computing on", options.pu
 
-x, mat, header, title = iodata.load_csv(options.finp, options.sep)
+r = csv.reader(open(options.finp), delimiter=options.sep)
+mat = array([row for row in r], dtype=float)
+
 m = kmeans.Means(options.nrip,
                  options.met,
                  options.fast,

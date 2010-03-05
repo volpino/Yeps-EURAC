@@ -82,12 +82,8 @@ This tool computes a K-Means algorithm over a certain number of time series
 
 **Example**
 
-- Input file must be tabular (separated by tabs) and well structured like::
-
-    id   a   b   c   d
-    id1  1   9   2   0
-    id2  5   2   4   2
-    id3  2   3   5   1
+- Input file must be tabular and well structured.
+  Each row is a time series and his values are separated by tabs. There's no header
 
 - Output: a tabular file with the algorithm data. You can plot clusters or
   get a report using the tools in *Graph/Display Data*

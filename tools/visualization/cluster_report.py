@@ -1,6 +1,5 @@
 from numpy import *
 import csv
-import iodata
 from sys import argv
 
 try:
@@ -19,13 +18,14 @@ for row in r:
 centroidsid = array(l[0])
 mini = array(l[1])
 
-x, mat, header, title = iodata.load_csv(input2, '\t')
+r = csv.reader(open(input2), delimiter='\t')
+mat = array([row for row in r], dtype=float)
 
 centroid_matrix = zeros((mat.shape[0], centroidsid.shape[0]))
 for i in range(centroidsid.shape[0]):
     centroid_matrix[:, i] = mat[:, centroidsid[i]-1]
 
-f=open(output,"w")
+f = open(output,"w")
 writer = csv.writer(f, delimiter='\t', lineterminator='\n')
 
 f.write("centroid.matrix\n")

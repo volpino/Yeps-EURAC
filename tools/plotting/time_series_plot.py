@@ -1,7 +1,6 @@
 #!/usb/bin/env python
 
 from sys import argv
-import iodata
 
 try:
     sep = argv[1]
@@ -22,7 +21,8 @@ import matplotlib.pyplot as plt
 if sep == "tab":
     sep = "\t"
 
-x, mat, header, title = iodata.load_csv(input, sep)
+r = csv.reader(open(options.finp), delimiter=options.sep)
+mat = array([row for row in r], dtype=float)
 
 for time_series in mat:
     plt.plot(time_series)
