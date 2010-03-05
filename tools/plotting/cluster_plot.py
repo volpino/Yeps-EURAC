@@ -28,7 +28,7 @@ for row in r:
 centroidsid = array(l[0])
 mini = array(l[1])
 
-r = csv.reader(open(input1), delimiter='\t')
+r = csv.reader(open(input2), delimiter='\t')
 mat = array([row for row in r], dtype=float)
 
 clusters = {}
