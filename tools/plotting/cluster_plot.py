@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 r = csv.reader(open(input1), delimiter='\t')
 l = []
 for row in r:
-    l.append([int(i) for i in row])
+    l.append([float(i) for i in row])
 
 centroidsid = array(l[:-1])
 mini = array(l[-1])
