@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 if sep == "tab":
     sep = "\t"
 
-r = csv.reader(open(options.finp), delimiter=options.sep)
+r = csv.reader(open(input), delimiter='\t')
 mat = array([row for row in r], dtype=float)
 
 for time_series in mat:
