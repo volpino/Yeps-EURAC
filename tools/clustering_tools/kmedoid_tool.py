@@ -78,5 +78,6 @@ mat = array([row for row in r], dtype=float)
 centroidsid, mini = m.compute(options.k, mat.T)
 
 w = csv.writer(open(options.foutp, 'w'), delimiter='\t')
-w.writerow(centroidsid)
+for elem in centroidsid:
+    w.writerow(mat[elem])
 w.writerow(mini)
