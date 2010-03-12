@@ -51,7 +51,7 @@ Training set length: %d
 Test set length: %d
 Right: %d
 Wrong: %d
-Accuracy:                 %d%%
+Accuracy: %d%%
 """ % (len(train) - (right + wrong), right + wrong, right, wrong, acc)
 
 out = open(output, 'w')
