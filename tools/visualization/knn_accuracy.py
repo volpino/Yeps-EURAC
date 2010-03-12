@@ -47,12 +47,12 @@ else:
 report = """
 kNN accuracy report:
 
-Lenght of the train set:  %d
-Lenght of the test set:   %d
-Right classifications:    %d
-Wrong classifications:    %d
+Training set length: %d
+Test set length: %d
+Right: %d
+Wrong: %d
 Accuracy:                 %d%%
-""" % (len(train), right + wrong, right, wrong, acc)
+""" % (len(train) - (right + wrong), right + wrong, right, wrong, acc)
 
 out = open(output, 'w')
 out.write(report)
