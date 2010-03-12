@@ -2,6 +2,7 @@
 
 from sys import argv
 import csv
+import numpy as np
 
 try:
     sep = argv[1]
@@ -23,7 +24,7 @@ if sep == "tab":
     sep = "\t"
 
 r = csv.reader(open(input), delimiter='\t')
-mat = array([row for row in r], dtype=float)
+mat = np.array([row for row in r], dtype=np.float)
 
 for time_series in mat:
     plt.plot(time_series)
