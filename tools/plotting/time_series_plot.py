@@ -1,6 +1,7 @@
 #!/usb/bin/env python
 
 from sys import argv
+import csv
 
 try:
     sep = argv[1]
