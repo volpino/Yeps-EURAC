@@ -6,52 +6,57 @@
 <meta name="generator" content="Docutils 0.3.9: http://docutils.sourceforge.net/" />
 <link rel="stylesheet" href="style/base.css" type="text/css" />
 </head>
-
-
 <body>
+
 <h2>YEPS Galaxy for EURAC Junior Contest</h2>
+<h3>A WEB-BASED PLATFORM FOR EXPERIMENTAL DESIGN AND TIME SERIES ANALYSIS</h3>
 
 <p>
-<h3>GENETIC AND ENVIRONMENTAL TIME SERIES ANALYSIS</h3>
-
-<p>
-The start of this project goes back to this summer when we took part in an “Internet” camp organised by “Fondazione Bruno Kessler”1 where we were asked to come up with some ideas to solve the problem of large amounts of data (time series) analysis. During the three weeks the camp last we acquired many skills and remarkable knowledge on the topic of time series analysis, so when we got home we decided to put them into practice.
+The start of this project goes back to this summer when we took part to an “Internet camp" organised by “Fondazione Bruno Kessler”1. There we were asked to come up with some ideas to solve the problem of large amounts of data (time series especially) analysis. During the three weeks the camp last we acquired many skills and remarkable data mining and machine learning knowledge, so when we got home we decided to put them into practice.
 </p>
 <p>
-We noticed the lack of an easy to use and at the same time highly performing tool that could help scientists to perform analysis on data in the form of time series.
-We thought to possible solutions and a web based platform where data analysis could be carried out was what we thought would fill the hole.
+Computers have become increasingly fundamental in research. Scientists use them in every step of their activity: to observe a fenomenon, getting information about it, organising their experiments, to collect and analyse data and to share their results. The application of informatics to fields of research different from the traditional ones – biology for example – helped greatly to their development.
+However the potential that computers have in not always fully exploited. The complexity of modern systems, their costs and the difficulties found in running them have limitated it.
 </p>
 <p>
-The advantages of a web based service on a local computer software are many. You don’t have to install anything on your computer but you can access the service from your web browser, you can access it from anywhere, the hardware of the server where the software is run can be optimised for the purpose and you can easily share your data and your experiments with other scientists.
+We noticed the lack of an easy to use, widely accessible and at the same time highly performing tool that could help scientists to design their experiment and perform analysis on data in the form of time series.
 </p>
 <p>
-At this stage we defined two basic tasks that had to be performed in order to achieve the goal we set ourselves. We needed to select and code the analysis tools we were going to offer and integrate them into a web platform.
+If we could implement a web based platform where experimental design and data mining could be carried out this hole would be filled, to some extent.
 </p>
 <p>
-The research we did on the potentially useful machine learning tools for data exploration and analysis led us to the choice of implementing a tool of clustering and a tool of classification. The two algorithms of clustering we developed are k-Means and K-Medoid while the classification k-NN algorithm was the one we evaluated most suited to our needs. Both clustering and classification involved distances between time series calculations so we dedicated particular attention to this aspect and we assessed the Dynamic Time Warping (DTW) to be our main topic of research as far as distances were concerned. However we didn’t limit our radius of exploration to this so the distances featured in the current version of the program comprehend three versions of the DTW (normal, derivative and fast) but also the linear pearson correlation and the euclidean distance.
-In the process of implementation of the algorithms we cared particularly of their performances as they were to be used on very large amounts of data. Not being satisfied with the performances we reached, in relation to the goal we set ourselves in a first moment, we decided to explore a newest field in scientific computing. We implemented versions of some algorithms that could be run by the graphic processor of the computer (GPGPU) decreasing the computational time taken to resolve an ordinary task of clustering or classification to 1/100 of the versions run by the CPU. This absolutely remarkable reduction was possible thanks to the particular architecture of modern GPUs that allows to parallelize calculations.
+The advantages of a web based service on a local computer software are many. You don’t have to install anything on your computer but you access the service from your web browser, you can reach it from anywhere, the hardware of the server where the software is run can be optimised for the needs of the algorithms and you can easily share your data and procedures with other scientists.
 </p>
 <p>
-While we were still developing the tools described above we started to work at the integration of these into a web based platform. Marco Grimaldi, a researcher of the “Fondazione Bruro Kessler”1 indicated to us Galaxy as a possible solution to this problem. Galaxy is a brand new platform developed by the Penn State University2 to give scientists in the field of bioinformatics a starting point for the development of their software and ease down the usage of it for the non experts. The integration of the tools we developed into Galaxy turned out to be pretty straightforward even if we had to recode several modules such as the data management and the data display to suit our needs.
+To achieve the goal we set ourselves there were two tasks that had to be carried out: implement the data mining and machine learning algorithms we were going to offer and integrate them into a web platform.
 </p>
 <p>
-Finished this we started to load our software on KRK, a workstation that “Fondazione Bruno Kessler”1 kindly allowed us to access, and refined our software.
+The research we did on the potentially useful machine learning tools for data exploration and analysis led us to the decision of implementing a tool clustering and a tool of classification. For the clustering tool we chose and developed two algorithms: k-Means and K-Medoid, while for the classification the alghorithm that most suited our needs was the k-NN. Both clustering and classification involved distances between time series calculations so we dedicated particular attention to this aspect and we assessed the Dynamic Time Warping (DTW) to be our main topic of research as far as distances were concerned. However we didn’t limit our radius of exploration to this so the distances featured in the current version of the software comprehend three versions of the DTW (normal, derivative and fast) but also the linear pearson correlation and the euclidean distance.
+In the process of implementation of the algorithms we cared particularly of their performances as they were to be used on very large amounts of data. For this reason we decided to explore a newest field in scientific computing. We implemented versions of some algorithms that could be run by the graphic processor of the computer (GPGPU) decreasing the computational time taken to resolve an ordinary task of clustering or classification remarkably. This reduction is made possible by the multicore architecture of modern GPUs that allows to parallelize calculations.
 </p>
 <p>
-The result of our research is Galaxy-YEPS a revolutionary and remarkably powerful tool for time series analysis released under a GNU GPL 3 license. The most significant elements of it are the great power of computation thanks to the GPGPU technology, the high accessibility of the tool as you can use it from anywhere and you don’t need to install anything on your computer, it is easy to use even for people with little experience in informatics and it gives researchers the chance to share data and procedures thanks to a workflow management tool.
+While we were still developing the tools described above we started to work at the integration of these into a web based platform. Marco Grimaldi, a researcher of the “Fondazione Bruro Kessler”[1] indicated to us Galaxy as a possible solution to this problem. Galaxy is a brand new platform developed by the Penn State University[2] to give scientists in the field of bioinformatics and genetics a starting point for the development of their software and ease down the usage of it for the non experts. The integration of the tools we developed into Galaxy turned out to be pretty straightforward even if we had to recode several modules such as the data management and the data display to suit our needs. It also offers a workflow management tool that is wery efficient for experimental design and the sharing of procedures between scientists.
+</p>
+<p>
+Finished this we started to load our software on KRK, a workstation that “Fondazione Bruno Kessler”[1] kindly allowed us to access, and refined our software.
+</p>
+<p>
+The result of our research is Galaxy-YEPS a revolutionary and remarkably powerful tool forexperimental design and time series analysis released under a GNU GPL 3 license. The most significant elements of it are the great power of computation thanks to the GPGPU technology, the high accessibility of the tool as you can use it from anywhere and you don’t need to install anything on your computer, it is easy to use even for people with little experience in informatics and it gives researchers the chance to share data and procedures easily thanks to a workflow management tool.
+But Galaxy-YEPS is just the “tip of an iceberb” compared to its potentials. We strongly believe that its developement could lead to a new way to do science in many fields and we already defined many points in which it could be improved and expanded.
 </p>
 <p>
 The development of Galaxy-YEPS was an extremely positive experience and one last think we want to underline is that throughout the realisation of the project, given the distance between the places where we live and that we go to four different schools, we met physically only a few times. The work was discussed and organised trough the internet with a mailing list, a wiki and two repositories where we kept the code we were developing.
 </p>
 <p>
-A great thank goes to “Fondazione Bruno Kessler”1 and to Marco Grimaldi whose advices were of great help for the development of the project.
+A great thank goes to “Fondazione Bruno Kessler”[1] and to Marco Grimaldi whose advices were of great help for the development of the project.
 </p>
 <p>
-1 Fondazione Bruno Kessler is situated in Trentino, a province in northern Italy governed under a special autonomy statute. The foundation, with more than 350 researchers, conducts studies in the areas of Information Technology, Materials and Microsystems, Italo-Germanic studies, and Religious sciences.
+[1] Fondazione Bruno Kessler is situated in Trentino, a province in northern Italy governed under a special autonomy statute. The foundation, with more than 350 researchers, conducts studies in the areas of Information Technology, Materials and Microsystems, Italo-Germanic studies, and Religious sciences.
+</p>
+<p>
+[2] “Center for Comparative Genomics and Bioinformatics” Pennsylvania State University.
+</p>
 
-2 Pennsylvania State University
-</p>
-</p>
 <br/>
 <br/>
 <br/>
@@ -60,6 +65,5 @@ A great thank goes to “Fondazione Bruno Kessler”1 and to Marco Grimaldi whos
 <p><a target="_blank" class="reference" href="http://g2.trac.bx.psu.edu/wiki/GalaxyTeam">The Galaxy team</a> is a part of <a target="_blank" class="reference" href="http://www.bx.psu.edu">BX</a> at <a target="_blank" class="reference" href="http://www.psu.edu">Penn State</a>.</p>
 
 This project is supported in part by <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>, <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>, and <a target="_blank" class="reference" href="http://www.huck.psu.edu">the Huck Institutes of the Life Sciences</a>.
-<p><small>Galaxy build: <b>$Rev 1733:a4214de3752e$</b></small></p>
 </body>
 </html>

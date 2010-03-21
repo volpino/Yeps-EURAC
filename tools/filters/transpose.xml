@@ -1,0 +1,36 @@
+<tool id="transpose" name="Transpose">
+  <description>of a time series matrix</description>
+  <command interpreter="python">transpose.py $input $output</command>
+  <inputs>
+    <param format="tabular" name="input" type="data" label="Source file"/>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+<help>
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+This tool performs a transpose operation on a time series dataset.
+It is useful if you have a dataset where each column is a time series.
+
+**Example**
+
+- Input::
+
+    1   9   2   0
+    5   2   4   2
+    2   3   5   1
+
+- Outputs::
+
+    1   5   2
+    9   2   3
+    2   4   5
+    0   2   1
+
+</help>
+</tool>
