@@ -35,6 +35,7 @@
     <tool file="filters/remove_beginning.xml" />
     <tool file="filters/headWrapper.xml" />
     <tool file="filters/tailWrapper.xml" />
+    <tool file="filters/transpose.xml" />
     <tool file="filters/trimmer.xml" />
   </section>
   <section name="Filter and Sort" id="filter">
