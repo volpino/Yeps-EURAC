@@ -16,7 +16,10 @@
 
 -----
 
-This tools splits dataset random in 2 datasets (1/3 and 2/3 of the input data)
+This tool splits a dataset in 2 datasets (1/3 and 2/3 of the input data).
+If the "Labels column" is set to "None" the dataset is split randomly while
+if it indicates the column of the labels the dataset is split randomly but
+taking care of having elements of each class into each of the 2 new datasets.
 This operation is useful to check the accuracy of classification algorithms.
 
 </help>
