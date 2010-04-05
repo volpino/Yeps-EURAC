@@ -1,7 +1,8 @@
 <tool id="splitDataset" name="Split">
     <description>dataset random in 1/3 and 2/3</description>
-  <command interpreter="python">split_dataset.py $input $train $test</command>
+  <command interpreter="python">split_dataset.py $input $col $train $test</command>
   <inputs>
+    <param name="col" type="text" value="-1" label="Labels column"/>
     <param format="tabular" name="input" type="data" label="Source file"/>
   </inputs>
   <outputs>
